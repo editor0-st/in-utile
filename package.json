@@ -15,7 +15,9 @@
     "build": "tsc",
     "test": "vitest run",
     "dev:va": "tsx src/variant-authority/server.ts",
-    "dev:rp": "tsx src/radix-primitives/server.ts"
+    "dev:rp": "tsx src/radix-primitives/server.ts",
+    "figma:sync": "tsx scripts/sync-figma-all.ts",
+    "figma:primitives": "tsx scripts/sync-figma-primitives.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",

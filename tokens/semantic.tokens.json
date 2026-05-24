@@ -1,0 +1,275 @@
+{
+  "$collection": "Semantic",
+  "$modes": ["Light", "Dark"],
+  "$description": "Alias tokens. Dark mode is the 'hero' mode — HK poster aesthetic lives here.",
+
+  "Background": {
+    "Canvas": {
+      "$type": "color",
+      "$light": "#F9F9F9",
+      "$dark":  "#1C1C1C",
+      "$description": "Page base — BW/White light, BW/Black dark"
+    },
+    "Surface": {
+      "$type": "color",
+      "$light": "#FFFFFF",
+      "$dark":  "#2A2A2A",
+      "$description": "Card / panel surface"
+    },
+    "Sunken": {
+      "$type": "color",
+      "$light": "#F3F3F3",
+      "$dark":  "#141414",
+      "$description": "Recessed area — BW/100 light"
+    },
+    "Overlay": {
+      "$type": "color",
+      "$light": "rgba(28,28,28,0.50)",
+      "$dark":  "rgba(28,28,28,0.80)",
+      "$description": "Modal scrim"
+    },
+    "Accent": {
+      "$type": "color",
+      "$light": "#E33C29",
+      "$dark":  "#E33C29",
+      "$description": "Red/500 — signature brand fill"
+    },
+    "Gold": {
+      "$type": "color",
+      "$light": "#F28800",
+      "$dark":  "#F28800",
+      "$description": "Cream/400 — warm poster gold"
+    },
+    "Teal": {
+      "$type": "color",
+      "$light": "#0A8E8C",
+      "$dark":  "#0A8E8C",
+      "$description": "Turkey/500 — iconic HK cyan"
+    }
+  },
+
+  "Text": {
+    "Primary": {
+      "$type": "color",
+      "$light": "#1C1C1C",
+      "$dark":  "#F9F9F9",
+      "$description": "BW/Black ↔ BW/White"
+    },
+    "Secondary": {
+      "$type": "color",
+      "$light": "#5B5B5B",
+      "$dark":  "#B7B7B7",
+      "$description": "BW/700 ↔ BW/400"
+    },
+    "Tertiary": {
+      "$type": "color",
+      "$light": "#979797",
+      "$dark":  "#6F6F6F",
+      "$description": "BW/500 ↔ BW/600 — captions, metadata"
+    },
+    "Disabled": {
+      "$type": "color",
+      "$light": "#B7B7B7",
+      "$dark":  "#3C3C3C",
+      "$description": "BW/400 ↔ BW/800"
+    },
+    "Inverse": {
+      "$type": "color",
+      "$light": "#F9F9F9",
+      "$dark":  "#1C1C1C",
+      "$description": "Text on accent backgrounds"
+    },
+    "Accent": {
+      "$type": "color",
+      "$light": "#D43229",
+      "$dark":  "#E33C29",
+      "$description": "Red/600 ↔ Red/500 — link, CTA text"
+    },
+    "Gold": {
+      "$type": "color",
+      "$light": "#EE7500",
+      "$dark":  "#F59D37",
+      "$description": "Cream/500 ↔ Cream/300 — warm highlight text"
+    },
+    "Teal": {
+      "$type": "color",
+      "$light": "#09817F",
+      "$dark":  "#4CB0B1",
+      "$description": "Turkey/600 ↔ Turkey/300"
+    },
+    "Pink": {
+      "$type": "color",
+      "$light": "#D21661",
+      "$dark":  "#E31864",
+      "$description": "Pink/600 ↔ Pink/500 — neon accent text"
+    }
+  },
+
+  "Border": {
+    "Subtle": {
+      "$type": "color",
+      "$light": "#EAEAEA",
+      "$dark":  "#3C3C3C",
+      "$description": "BW/200 ↔ BW/800"
+    },
+    "Default": {
+      "$type": "color",
+      "$light": "#DADADA",
+      "$dark":  "#5B5B5B",
+      "$description": "BW/300 ↔ BW/700"
+    },
+    "Strong": {
+      "$type": "color",
+      "$light": "#B7B7B7",
+      "$dark":  "#979797",
+      "$description": "BW/400 ↔ BW/500"
+    },
+    "Accent": {
+      "$type": "color",
+      "$light": "#E33C29",
+      "$dark":  "#E33C29",
+      "$description": "Red/500 — branded border"
+    },
+    "Focus": {
+      "$type": "color",
+      "$light": "#214876",
+      "$dark":  "#BBC5D4",
+      "$description": "Blue/500 ↔ Blue/100 — keyboard focus ring"
+    }
+  },
+
+  "Brand": {
+    "Primary": {
+      "$type": "color",
+      "$light": "#E33C29",
+      "$dark":  "#E33C29",
+      "$description": "Red/500 — core brand identity"
+    },
+    "PrimaryHover": {
+      "$type": "color",
+      "$light": "#D43229",
+      "$dark":  "#E04D45",
+      "$description": "Red/600 ↔ Red/400"
+    },
+    "PrimaryActive": {
+      "$type": "color",
+      "$light": "#C32824",
+      "$dark":  "#E79592",
+      "$description": "Red/700 ↔ Red/200"
+    },
+    "Secondary": {
+      "$type": "color",
+      "$light": "#0A8E8C",
+      "$dark":  "#0A8E8C",
+      "$description": "Turkey/500 — teal counterpoint"
+    },
+    "SecondaryHover": {
+      "$type": "color",
+      "$light": "#09817F",
+      "$dark":  "#279F9F",
+      "$description": "Turkey/600 ↔ Turkey/400"
+    },
+    "Neon": {
+      "$type": "color",
+      "$light": "#E31864",
+      "$dark":  "#E31864",
+      "$description": "Pink/500 — neon sign accent"
+    },
+    "Gold": {
+      "$type": "color",
+      "$light": "#F28800",
+      "$dark":  "#F28800",
+      "$description": "Cream/400 — poster gold"
+    },
+    "Deep": {
+      "$type": "color",
+      "$light": "#214876",
+      "$dark":  "#0A2F57",
+      "$description": "Blue/500 ↔ Blue/800 — deep cinematic blue"
+    }
+  },
+
+  "Status": {
+    "ErrorBg": {
+      "$type": "color",
+      "$light": "#FDEAEC",
+      "$dark":  "#3C1010",
+      "$description": "Red/50 ↔ custom dark"
+    },
+    "ErrorText": {
+      "$type": "color",
+      "$light": "#A71611",
+      "$dark":  "#E79592",
+      "$description": "Red/900 ↔ Red/200"
+    },
+    "SuccessBg": {
+      "$type": "color",
+      "$light": "#E0F1F2",
+      "$dark":  "#0C2827",
+      "$description": "Turkey/50 ↔ deep teal"
+    },
+    "SuccessText": {
+      "$type": "color",
+      "$light": "#0C4641",
+      "$dark":  "#7FC6C8",
+      "$description": "Turkey/900 ↔ Turkey/200"
+    },
+    "WarningBg": {
+      "$type": "color",
+      "$light": "#FFEEDA",
+      "$dark":  "#2D1800",
+      "$description": "Cream/50 ↔ deep warm"
+    },
+    "WarningText": {
+      "$type": "color",
+      "$light": "#D41F00",
+      "$dark":  "#FAB96E",
+      "$description": "Cream/900 ↔ Cream/200"
+    },
+    "InfoBg": {
+      "$type": "color",
+      "$light": "#E4E8ED",
+      "$dark":  "#061325",
+      "$description": "Blue/50 ↔ deepest navy"
+    },
+    "InfoText": {
+      "$type": "color",
+      "$light": "#061F40",
+      "$dark":  "#BBC5D4",
+      "$description": "Blue/900 ↔ Blue/100"
+    }
+  },
+
+  "Poster": {
+    "RedGlow": {
+      "$type": "color",
+      "$light": "rgba(227,60,41,0.15)",
+      "$dark":  "rgba(227,60,41,0.30)",
+      "$description": "Red neon glow — for dramatic hover / active states"
+    },
+    "TealGlow": {
+      "$type": "color",
+      "$light": "rgba(10,142,140,0.15)",
+      "$dark":  "rgba(10,142,140,0.30)",
+      "$description": "Teal neon glow"
+    },
+    "PinkGlow": {
+      "$type": "color",
+      "$light": "rgba(227,24,100,0.15)",
+      "$dark":  "rgba(227,24,100,0.30)",
+      "$description": "Pink neon glow"
+    },
+    "GoldGlow": {
+      "$type": "color",
+      "$light": "rgba(242,136,0,0.15)",
+      "$dark":  "rgba(242,136,0,0.30)",
+      "$description": "Gold neon glow"
+    },
+    "FilmGrain": {
+      "$type": "color",
+      "$light": "rgba(28,28,28,0.04)",
+      "$dark":  "rgba(249,249,249,0.04)",
+      "$description": "Grain texture overlay color"
+    }
+  }
+}
