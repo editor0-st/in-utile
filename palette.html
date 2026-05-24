@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Palette — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Barlow+Condensed:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ── Layout ── */
+    .page { max-width: 1280px; margin: 0 auto; padding: var(--space-16) var(--space-8); }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: var(--space-10);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-16);
+    }
+    .header-title {
+      font-family: var(--font-display);
+      font-size: var(--text-6xl);
+      font-weight: var(--font-black);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-none);
+    }
+    .header-title em {
+      font-style: italic;
+      color: var(--text-accent);
+    }
+    .header-meta {
+      text-align: right;
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+    .theme-toggle {
+      margin-top: var(--space-2);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      letter-spacing: var(--tracking-wide);
+    }
+    .theme-toggle:hover { border-color: var(--border-accent); color: var(--text-accent); }
+
+    /* ── Section ── */
+    .section { margin-bottom: var(--space-20); }
+    .section-label {
+      font-family: var(--font-condensed);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-poster);
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-6);
+    }
+    .section-label span {
+      display: inline-block;
+      padding: 2px var(--space-2);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    /* ── Color Grid ── */
+    .color-grid { display: flex; flex-direction: column; gap: var(--space-4); }
+    .color-row { display: grid; grid-template-columns: 100px repeat(10, 1fr); gap: var(--space-1); align-items: center; }
+    .color-row-name {
+      font-family: var(--font-condensed);
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-wide);
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    .swatch {
+      height: 52px;
+      border-radius: var(--radius-base);
+      position: relative;
+      cursor: default;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .swatch:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .swatch::after {
+      content: attr(data-hex);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 2px 5px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .swatch:hover::after { opacity: 1; }
+
+    /* BW row special */
+    .color-row.bw-row { grid-template-columns: 100px repeat(12, 1fr); }
+
+    /* ── Semantic Grid ── */
+    .semantic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-3);
+    }
+    .semantic-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+    }
+    .semantic-swatch { height: 72px; }
+    .semantic-info {
+      padding: var(--space-3) var(--space-3);
+    }
+    .semantic-name {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .semantic-desc {
+      font-size: 10px;
+      color: var(--text-tertiary);
+      line-height: 1.4;
+    }
+
+    /* ── Typography ── */
+    .type-grid { display: flex; flex-direction: column; gap: var(--space-8); }
+
+    .type-specimen {
+      padding: var(--space-8) var(--space-8);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+    .type-meta { border-right: 1px solid var(--border-subtle); padding-right: var(--space-6); }
+    .type-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-accent);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .type-detail {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      line-height: 1.8;
+    }
+    .type-sample { overflow: hidden; }
+    .type-sample-text { color: var(--text-primary); line-height: var(--leading-tight); }
+
+    /* Scale strip */
+    .scale-strip {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      padding: var(--space-6) var(--space-8);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+    }
+    .scale-item { text-align: center; }
+    .scale-value { color: var(--text-primary); line-height: 1; }
+    .scale-name { font-family: var(--font-mono); font-size: 9px; color: var(--text-tertiary); margin-top: 4px; }
+
+    /* ── Spacing Visual ── */
+    .spacing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: flex-end;
+      padding: var(--space-8);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+    }
+    .spacing-item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+    .spacing-bar {
+      background: var(--brand-primary);
+      width: 12px;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      opacity: 0.8;
+    }
+    .spacing-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-tertiary); }
+
+    /* ── Radius ── */
+    .radius-row {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      padding: var(--space-8);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      align-items: center;
+    }
+    .radius-item { text-align: center; }
+    .radius-box {
+      width: 64px;
+      height: 64px;
+      background: var(--brand-primary);
+      opacity: 0.7;
+      margin: 0 auto var(--space-2);
+    }
+    .radius-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-tertiary); }
+
+    /* ── Poster Section ── */
+    .poster-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-2xl);
+      background: var(--color-bw-black);
+      padding: var(--space-16) var(--space-12);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+      border: 1px solid var(--border-subtle);
+      min-height: 360px;
+    }
+    .poster-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, var(--poster-teal-glow), transparent),
+        radial-gradient(ellipse 40% 60% at 15% 20%, var(--poster-red-glow), transparent),
+        radial-gradient(ellipse 30% 40% at 50% 90%, var(--poster-pink-glow), transparent);
+      pointer-events: none;
+    }
+    .poster-text { position: relative; z-index: 1; }
+    .poster-eyebrow {
+      font-family: var(--font-condensed);
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-poster);
+      text-transform: uppercase;
+      color: var(--color-cream-300);
+      margin-bottom: var(--space-4);
+    }
+    .poster-headline {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 96px);
+      font-weight: var(--font-black);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-none);
+      color: var(--color-bw-white);
+    }
+    .poster-headline em {
+      font-style: italic;
+      color: var(--color-red-500);
+    }
+    .poster-sub {
+      margin-top: var(--space-6);
+      font-size: var(--text-md);
+      color: var(--color-bw-400);
+      line-height: var(--leading-relaxed);
+    }
+    .poster-aside { position: relative; z-index: 1; }
+    .neon-tag {
+      display: inline-block;
+      padding: var(--space-1) var(--space-4);
+      border: 1px solid currentColor;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-condensed);
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+      display: block;
+      width: fit-content;
+    }
+    .neon-tag.red   { color: var(--color-red-400);    box-shadow: 0 0 12px var(--poster-red-glow);  }
+    .neon-tag.teal  { color: var(--color-turkey-300); box-shadow: 0 0 12px var(--poster-teal-glow); }
+    .neon-tag.pink  { color: var(--color-pink-400);   box-shadow: 0 0 12px var(--poster-pink-glow); }
+    .neon-tag.gold  { color: var(--color-cream-300);  box-shadow: 0 0 12px var(--poster-gold-glow); }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: var(--space-16) 0;
+    }
+
+    /* ── Grain overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+      background-size: 128px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header-title">Design<br><em>Palette</em></h1>
+    <div class="header-meta">
+      Portfolio · HK Poster Aesthetic<br>
+      4 collections · 200+ tokens<br>
+      <button class="theme-toggle" onclick="toggleTheme()">LIGHT / DARK</button>
+    </div>
+  </header>
+
+  <!-- ── Poster Preview ── -->
+  <section class="section">
+    <p class="section-label"><span>AESTHETIC PREVIEW</span></p>
+    <div class="poster-card">
+      <div class="poster-text">
+        <p class="poster-eyebrow">Portfolio 2025</p>
+        <h2 class="poster-headline">The Art<br>of <em>Motion</em></h2>
+        <p class="poster-sub">Design systems rooted in cinematic tension — where every token carries the weight of intention.</p>
+      </div>
+      <div class="poster-aside">
+        <span class="neon-tag red">Red — Signature</span>
+        <span class="neon-tag teal">Turkey — Counterpoint</span>
+        <span class="neon-tag pink">Pink — Neon</span>
+        <span class="neon-tag gold">Cream — Gold</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Primitive Colors ── -->
+  <section class="section">
+    <p class="section-label"><span>PRIMITIVE COLORS</span></p>
+    <div class="color-grid">
+
+      <!-- Red -->
+      <div class="color-row">
+        <span class="color-row-name">Red</span>
+        <div class="swatch" style="background:#FDEAEC" data-hex="#FDEAEC 50"></div>
+        <div class="swatch" style="background:#FACACD" data-hex="#FACACD 100"></div>
+        <div class="swatch" style="background:#E79592" data-hex="#E79592 200"></div>
+        <div class="swatch" style="background:#D96D69" data-hex="#D96D69 300"></div>
+        <div class="swatch" style="background:#E04D45" data-hex="#E04D45 400"></div>
+        <div class="swatch" style="background:#E33C29" data-hex="#E33C29 500 ★"></div>
+        <div class="swatch" style="background:#D43229" data-hex="#D43229 600"></div>
+        <div class="swatch" style="background:#C32824" data-hex="#C32824 700"></div>
+        <div class="swatch" style="background:#B6221D" data-hex="#B6221D 800"></div>
+        <div class="swatch" style="background:#A71611" data-hex="#A71611 900"></div>
+      </div>
+
+      <!-- Cream -->
+      <div class="color-row">
+        <span class="color-row-name">Cream</span>
+        <div class="swatch" style="background:#FFEEDA" data-hex="#FFEEDA 50"></div>
+        <div class="swatch" style="background:#FED4A5" data-hex="#FED4A5 100"></div>
+        <div class="swatch" style="background:#FAB96E" data-hex="#FAB96E 200"></div>
+        <div class="swatch" style="background:#F59D37" data-hex="#F59D37 300"></div>
+        <div class="swatch" style="background:#F28800" data-hex="#F28800 400 ★"></div>
+        <div class="swatch" style="background:#EE7500" data-hex="#EE7500 500"></div>
+        <div class="swatch" style="background:#EA6900" data-hex="#EA6900 600"></div>
+        <div class="swatch" style="background:#E45800" data-hex="#E45800 700"></div>
+        <div class="swatch" style="background:#DE4600" data-hex="#DE4600 800"></div>
+        <div class="swatch" style="background:#D41F00" data-hex="#D41F00 900"></div>
+      </div>
+
+      <!-- Turkey -->
+      <div class="color-row">
+        <span class="color-row-name">Turkey</span>
+        <div class="swatch" style="background:#E0F1F2" data-hex="#E0F1F2 50"></div>
+        <div class="swatch" style="background:#B1DCDE" data-hex="#B1DCDE 100"></div>
+        <div class="swatch" style="background:#7FC6C8" data-hex="#7FC6C8 200"></div>
+        <div class="swatch" style="background:#4CB0B1" data-hex="#4CB0B1 300"></div>
+        <div class="swatch" style="background:#279F9F" data-hex="#279F9F 400"></div>
+        <div class="swatch" style="background:#0A8E8C" data-hex="#0A8E8C 500 ★"></div>
+        <div class="swatch" style="background:#09817F" data-hex="#09817F 600"></div>
+        <div class="swatch" style="background:#09726E" data-hex="#09726E 700"></div>
+        <div class="swatch" style="background:#0C625E" data-hex="#0C625E 800"></div>
+        <div class="swatch" style="background:#0C4641" data-hex="#0C4641 900"></div>
+      </div>
+
+      <!-- Blue -->
+      <div class="color-row">
+        <span class="color-row-name">Blue</span>
+        <div class="swatch" style="background:#E4E8ED" data-hex="#E4E8ED 50"></div>
+        <div class="swatch" style="background:#BBC5D4" data-hex="#BBC5D4 100"></div>
+        <div class="swatch" style="background:#8F9FB7" data-hex="#8F9FB7 200"></div>
+        <div class="swatch" style="background:#667B9A" data-hex="#667B9A 300"></div>
+        <div class="swatch" style="background:#456187" data-hex="#456187 400"></div>
+        <div class="swatch" style="background:#214876" data-hex="#214876 500"></div>
+        <div class="swatch" style="background:#1A416F" data-hex="#1A416F 600"></div>
+        <div class="swatch" style="background:#113864" data-hex="#113864 700"></div>
+        <div class="swatch" style="background:#0A2F57" data-hex="#0A2F57 800 ★"></div>
+        <div class="swatch" style="background:#061F40" data-hex="#061F40 900"></div>
+      </div>
+
+      <!-- Pink -->
+      <div class="color-row">
+        <span class="color-row-name">Pink</span>
+        <div class="swatch" style="background:#FBE4EC" data-hex="#FBE4EC 50"></div>
+        <div class="swatch" style="background:#F5BAD0" data-hex="#F5BAD0 100"></div>
+        <div class="swatch" style="background:#F08DB1" data-hex="#F08DB1 200"></div>
+        <div class="swatch" style="background:#EB6093" data-hex="#EB6093 300"></div>
+        <div class="swatch" style="background:#E63D7B" data-hex="#E63D7B 400"></div>
+        <div class="swatch" style="background:#E31864" data-hex="#E31864 500 ★"></div>
+        <div class="swatch" style="background:#D21661" data-hex="#D21661 600"></div>
+        <div class="swatch" style="background:#BC145B" data-hex="#BC145B 700"></div>
+        <div class="swatch" style="background:#A71157" data-hex="#A71157 800"></div>
+        <div class="swatch" style="background:#820D4E" data-hex="#820D4E 900"></div>
+      </div>
+
+      <!-- BW -->
+      <div class="color-row bw-row">
+        <span class="color-row-name">BW</span>
+        <div class="swatch" style="background:#F9F9F9;border:1px solid #EAEAEA" data-hex="White #F9F9F9"></div>
+        <div class="swatch" style="background:#F3F3F3" data-hex="#F3F3F3 100"></div>
+        <div class="swatch" style="background:#EAEAEA" data-hex="#EAEAEA 200"></div>
+        <div class="swatch" style="background:#DADADA" data-hex="#DADADA 300"></div>
+        <div class="swatch" style="background:#B7B7B7" data-hex="#B7B7B7 400"></div>
+        <div class="swatch" style="background:#979797" data-hex="#979797 500"></div>
+        <div class="swatch" style="background:#6F6F6F" data-hex="#6F6F6F 600"></div>
+        <div class="swatch" style="background:#5B5B5B" data-hex="#5B5B5B 700"></div>
+        <div class="swatch" style="background:#3C3C3C" data-hex="#3C3C3C 800"></div>
+        <div class="swatch" style="background:#2A2A2A" data-hex="#2A2A2A surface"></div>
+        <div class="swatch" style="background:#1C1C1C" data-hex="Black #1C1C1C"></div>
+        <div class="swatch" style="background:#141414" data-hex="#141414 sunken"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Semantic Colors ── -->
+  <section class="section">
+    <p class="section-label"><span>SEMANTIC COLORS — BRAND</span></p>
+    <div class="semantic-grid">
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--brand-primary)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--brand-primary</p>
+          <p class="semantic-desc">Red/500 — 시그니처 컬러</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--brand-secondary)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--brand-secondary</p>
+          <p class="semantic-desc">Turkey/500 — 틸 대위점</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--brand-neon)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--brand-neon</p>
+          <p class="semantic-desc">Pink/500 — 네온사인</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--brand-gold)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--brand-gold</p>
+          <p class="semantic-desc">Cream/400 — 포스터 골드</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--brand-deep)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--brand-deep</p>
+          <p class="semantic-desc">Blue/500↔800 — 시네마틱 딥블루</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--bg-canvas)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--bg-canvas</p>
+          <p class="semantic-desc">페이지 기본 배경 (모드 전환)</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:var(--bg-surface); border-top: 1px solid var(--border-subtle)"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--bg-surface</p>
+          <p class="semantic-desc">카드 / 패널 표면</p>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-swatch" style="background:linear-gradient(135deg, var(--poster-red-glow), var(--poster-teal-glow), var(--poster-pink-glow))"></div>
+        <div class="semantic-info">
+          <p class="semantic-name">--poster-*-glow</p>
+          <p class="semantic-desc">네온 글로우 오버레이 4종</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Typography ── -->
+  <section class="section">
+    <p class="section-label"><span>TYPOGRAPHY</span></p>
+    <div class="type-grid">
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <p class="type-label">Display / Poster</p>
+          <p class="type-detail">Fraunces<br>italic · 900<br>tracking-tight<br>leading-none</p>
+        </div>
+        <div class="type-sample">
+          <p class="type-sample-text" style="font-family:var(--font-display);font-size:clamp(40px,5vw,80px);font-weight:900;font-style:italic;letter-spacing:var(--tracking-tight);">The Art of Motion</p>
+        </div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <p class="type-label">Display / Upright</p>
+          <p class="type-detail">Fraunces<br>900<br>tracking-tight</p>
+        </div>
+        <div class="type-sample">
+          <p class="type-sample-text" style="font-family:var(--font-display);font-size:clamp(32px,4vw,64px);font-weight:900;letter-spacing:var(--tracking-tight);">Portfolio 2025</p>
+        </div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <p class="type-label">Condensed / Label</p>
+          <p class="type-detail">Barlow Condensed<br>700 · uppercase<br>tracking-poster</p>
+        </div>
+        <div class="type-sample">
+          <p class="type-sample-text" style="font-family:var(--font-condensed);font-size:var(--text-2xl);font-weight:700;letter-spacing:var(--tracking-poster);text-transform:uppercase;">Visual Identity</p>
+        </div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <p class="type-label">Sans / Body</p>
+          <p class="type-detail">Pretendard / Inter<br>400<br>leading-relaxed</p>
+        </div>
+        <div class="type-sample">
+          <p class="type-sample-text" style="font-size:var(--text-md);line-height:var(--leading-relaxed);max-width:52ch;">디자인과 기술 사이의 긴장감을 조율하는 작업. 모든 토큰은 의도의 무게를 담아야 합니다. Every decision is a gesture.</p>
+        </div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <p class="type-label">Mono</p>
+          <p class="type-detail">JetBrains Mono<br>400</p>
+        </div>
+        <div class="type-sample">
+          <p class="type-sample-text" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--text-teal);">--brand-primary: #E33C29;<br>--font-display: "Fraunces", serif;<br>--text-poster: 160px;</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Size Scale -->
+    <div style="margin-top:var(--space-8)">
+      <p class="section-label" style="margin-bottom:var(--space-4)"><span>FONT SIZE SCALE</span></p>
+      <div class="scale-strip">
+        <div class="scale-item"><div class="scale-value" style="font-size:10px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">2xs·10</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:11px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">xs·11</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:13px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">sm·13</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:16px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">base·16</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:18px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">md·18</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:20px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">lg·20</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:24px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">xl·24</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:30px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">2xl·30</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:36px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">3xl·36</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:48px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">4xl·48</p></div>
+        <div class="scale-item"><div class="scale-value" style="font-size:64px;font-family:var(--font-display);font-weight:900;">Aa</div><p class="scale-name">5xl·64</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Spacing ── -->
+  <section class="section">
+    <p class="section-label"><span>SPACING SCALE (4px base)</span></p>
+    <div class="spacing-grid">
+      <div class="spacing-item"><div class="spacing-bar" style="height:4px"></div><p class="spacing-label">1·4</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:8px"></div><p class="spacing-label">2·8</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:12px"></div><p class="spacing-label">3·12</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:16px"></div><p class="spacing-label">4·16</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:20px"></div><p class="spacing-label">5·20</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:24px"></div><p class="spacing-label">6·24</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:32px"></div><p class="spacing-label">8·32</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:40px"></div><p class="spacing-label">10·40</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:48px"></div><p class="spacing-label">12·48</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:64px"></div><p class="spacing-label">16·64</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:80px"></div><p class="spacing-label">20·80</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:96px"></div><p class="spacing-label">24·96</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:128px"></div><p class="spacing-label">32·128</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:160px"></div><p class="spacing-label">40·160</p></div>
+      <div class="spacing-item"><div class="spacing-bar" style="height:192px"></div><p class="spacing-label">48·192</p></div>
+    </div>
+  </section>
+
+  <!-- ── Radius ── -->
+  <section class="section">
+    <p class="section-label"><span>BORDER RADIUS</span></p>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-box" style="border-radius:0"></div><p class="radius-label">none · 0</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:2px"></div><p class="radius-label">sm · 2</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:4px"></div><p class="radius-label">base · 4</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:6px"></div><p class="radius-label">md · 6</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:8px"></div><p class="radius-label">lg · 8</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:12px"></div><p class="radius-label">xl · 12</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:16px"></div><p class="radius-label">2xl · 16</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:24px"></div><p class="radius-label">3xl · 24</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:9999px"></div><p class="radius-label">full</p></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+/* =============================================================================
+   Design Tokens — generated from tokens/*.tokens.json
+   Portfolio · HK Poster Aesthetic
+   ============================================================================= */
+
+/* ── Primitive Colors ─────────────────────────────────────────────────────── */
+:root {
+  /* Red */
+  --color-red-50:  #FDEAEC;
+  --color-red-100: #FACACD;
+  --color-red-200: #E79592;
+  --color-red-300: #D96D69;
+  --color-red-400: #E04D45;
+  --color-red-500: #E33C29;
+  --color-red-600: #D43229;
+  --color-red-700: #C32824;
+  --color-red-800: #B6221D;
+  --color-red-900: #A71611;
+
+  /* BW */
+  --color-bw-100:     #F3F3F3;
+  --color-bw-200:     #EAEAEA;
+  --color-bw-300:     #DADADA;
+  --color-bw-400:     #B7B7B7;
+  --color-bw-500:     #979797;
+  --color-bw-600:     #6F6F6F;
+  --color-bw-700:     #5B5B5B;
+  --color-bw-800:     #3C3C3C;
+  --color-bw-white:   #F9F9F9;
+  --color-bw-white-07: rgba(249,249,249,0.70);
+  --color-bw-white-05: rgba(249,249,249,0.50);
+  --color-bw-white-03: rgba(249,249,249,0.30);
+  --color-bw-black:   #1C1C1C;
+  --color-bw-black-05: rgba(28,28,28,0.50);
+
+  /* Cream (amber-orange) */
+  --color-cream-50:  #FFEEDA;
+  --color-cream-100: #FED4A5;
+  --color-cream-200: #FAB96E;
+  --color-cream-300: #F59D37;
+  --color-cream-400: #F28800;
+  --color-cream-500: #EE7500;
+  --color-cream-600: #EA6900;
+  --color-cream-700: #E45800;
+  --color-cream-800: #DE4600;
+  --color-cream-900: #D41F00;
+
+  /* Turkey (teal) */
+  --color-turkey-50:  #E0F1F2;
+  --color-turkey-100: #B1DCDE;
+  --color-turkey-200: #7FC6C8;
+  --color-turkey-300: #4CB0B1;
+  --color-turkey-400: #279F9F;
+  --color-turkey-500: #0A8E8C;
+  --color-turkey-600: #09817F;
+  --color-turkey-700: #09726E;
+  --color-turkey-800: #0C625E;
+  --color-turkey-900: #0C4641;
+
+  /* Blue */
+  --color-blue-50:  #E4E8ED;
+  --color-blue-100: #BBC5D4;
+  --color-blue-200: #8F9FB7;
+  --color-blue-300: #667B9A;
+  --color-blue-400: #456187;
+  --color-blue-500: #214876;
+  --color-blue-600: #1A416F;
+  --color-blue-700: #113864;
+  --color-blue-800: #0A2F57;
+  --color-blue-900: #061F40;
+
+  /* Pink */
+  --color-pink-50:  #FBE4EC;
+  --color-pink-100: #F5BAD0;
+  --color-pink-200: #F08DB1;
+  --color-pink-300: #EB6093;
+  --color-pink-400: #E63D7B;
+  --color-pink-500: #E31864;
+  --color-pink-600: #D21661;
+  --color-pink-700: #BC145B;
+  --color-pink-800: #A71157;
+  --color-pink-900: #820D4E;
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-display:    "Fraunces", Georgia, serif;
+  --font-sans:       "Pretendard", "Inter", system-ui, sans-serif;
+  --font-mono:       "JetBrains Mono", "Fira Code", monospace;
+  --font-condensed:  "Barlow Condensed", "Arial Narrow", sans-serif;
+
+  --text-2xs:   10px;
+  --text-xs:    11px;
+  --text-sm:    13px;
+  --text-base:  16px;
+  --text-md:    18px;
+  --text-lg:    20px;
+  --text-xl:    24px;
+  --text-2xl:   30px;
+  --text-3xl:   36px;
+  --text-4xl:   48px;
+  --text-5xl:   64px;
+  --text-6xl:   80px;
+  --text-7xl:   96px;
+  --text-display: 128px;
+  --text-poster:  160px;
+
+  --font-light:     300;
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+  --font-black:     900;
+
+  --leading-none:    1;
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose:   2;
+
+  --tracking-tightest: -0.05em;
+  --tracking-tighter:  -0.03em;
+  --tracking-tight:    -0.02em;
+  --tracking-normal:    0em;
+  --tracking-wide:      0.05em;
+  --tracking-wider:     0.1em;
+  --tracking-widest:    0.25em;
+  --tracking-poster:    0.4em;
+
+  /* ── Spacing ────────────────────────────────────────────────────────────── */
+  --space-0:    0px;
+  --space-px:   1px;
+  --space-0\.5: 2px;
+  --space-1:    4px;
+  --space-1\.5: 6px;
+  --space-2:    8px;
+  --space-2\.5: 10px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-7:    28px;
+  --space-8:    32px;
+  --space-9:    36px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-14:   56px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+  --space-28:   112px;
+  --space-32:   128px;
+  --space-36:   144px;
+  --space-40:   160px;
+  --space-48:   192px;
+  --space-56:   224px;
+  --space-64:   256px;
+  --space-72:   288px;
+  --space-80:   320px;
+  --space-96:   384px;
+
+  /* ── Radius ─────────────────────────────────────────────────────────────── */
+  --radius-none: 0px;
+  --radius-sm:   2px;
+  --radius-base: 4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
+  --radius-3xl:  24px;
+  --radius-full: 9999px;
+
+  /* ── Z-index ────────────────────────────────────────────────────────────── */
+  --z-hide:     -1;
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-toast:     500;
+  --z-tooltip:   600;
+
+  /* ── Opacity ────────────────────────────────────────────────────────────── */
+  --opacity-0:   0;
+  --opacity-5:   0.05;
+  --opacity-10:  0.10;
+  --opacity-20:  0.20;
+  --opacity-30:  0.30;
+  --opacity-40:  0.40;
+  --opacity-50:  0.50;
+  --opacity-60:  0.60;
+  --opacity-70:  0.70;
+  --opacity-80:  0.80;
+  --opacity-90:  0.90;
+  --opacity-95:  0.95;
+  --opacity-100: 1;
+}
+
+/* ── Semantic Tokens — Light Mode (default) ──────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --bg-canvas:   #F9F9F9;
+  --bg-surface:  #FFFFFF;
+  --bg-sunken:   #F3F3F3;
+  --bg-overlay:  rgba(28,28,28,0.50);
+  --bg-accent:   #E33C29;
+  --bg-gold:     #F28800;
+  --bg-teal:     #0A8E8C;
+
+  --text-primary:   #1C1C1C;
+  --text-secondary: #5B5B5B;
+  --text-tertiary:  #979797;
+  --text-disabled:  #B7B7B7;
+  --text-inverse:   #F9F9F9;
+  --text-accent:    #D43229;
+  --text-gold:      #EE7500;
+  --text-teal:      #09817F;
+  --text-pink:      #D21661;
+
+  --border-subtle:  #EAEAEA;
+  --border-default: #DADADA;
+  --border-strong:  #B7B7B7;
+  --border-accent:  #E33C29;
+  --border-focus:   #214876;
+
+  --brand-primary:        #E33C29;
+  --brand-primary-hover:  #D43229;
+  --brand-primary-active: #C32824;
+  --brand-secondary:      #0A8E8C;
+  --brand-secondary-hover:#09817F;
+  --brand-neon:           #E31864;
+  --brand-gold:           #F28800;
+  --brand-deep:           #214876;
+
+  --status-error-bg:    #FDEAEC;
+  --status-error-text:  #A71611;
+  --status-success-bg:  #E0F1F2;
+  --status-success-text:#0C4641;
+  --status-warning-bg:  #FFEEDA;
+  --status-warning-text:#D41F00;
+  --status-info-bg:     #E4E8ED;
+  --status-info-text:   #061F40;
+
+  --poster-red-glow:  rgba(227,60,41,0.15);
+  --poster-teal-glow: rgba(10,142,140,0.15);
+  --poster-pink-glow: rgba(227,24,100,0.15);
+  --poster-gold-glow: rgba(242,136,0,0.15);
+  --poster-grain:     rgba(28,28,28,0.04);
+}
+
+/* ── Semantic Tokens — Dark Mode ─────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) { :root { --theme: dark; } }
+
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) } {
+  --bg-canvas:   #1C1C1C;
+  --bg-surface:  #2A2A2A;
+  --bg-sunken:   #141414;
+  --bg-overlay:  rgba(28,28,28,0.80);
+  --bg-accent:   #E33C29;
+  --bg-gold:     #F28800;
+  --bg-teal:     #0A8E8C;
+
+  --text-primary:   #F9F9F9;
+  --text-secondary: #B7B7B7;
+  --text-tertiary:  #6F6F6F;
+  --text-disabled:  #3C3C3C;
+  --text-inverse:   #1C1C1C;
+  --text-accent:    #E33C29;
+  --text-gold:      #F59D37;
+  --text-teal:      #4CB0B1;
+  --text-pink:      #E31864;
+
+  --border-subtle:  #3C3C3C;
+  --border-default: #5B5B5B;
+  --border-strong:  #979797;
+  --border-accent:  #E33C29;
+  --border-focus:   #BBC5D4;
+
+  --brand-primary:        #E33C29;
+  --brand-primary-hover:  #E04D45;
+  --brand-primary-active: #E79592;
+  --brand-secondary:      #0A8E8C;
+  --brand-secondary-hover:#279F9F;
+  --brand-neon:           #E31864;
+  --brand-gold:           #F28800;
+  --brand-deep:           #0A2F57;
+
+  --status-error-bg:    #3C1010;
+  --status-error-text:  #E79592;
+  --status-success-bg:  #0C2827;
+  --status-success-text:#7FC6C8;
+  --status-warning-bg:  #2D1800;
+  --status-warning-text:#FAB96E;
+  --status-info-bg:     #061325;
+  --status-info-text:   #BBC5D4;
+
+  --poster-red-glow:  rgba(227,60,41,0.30);
+  --poster-teal-glow: rgba(10,142,140,0.30);
+  --poster-pink-glow: rgba(227,24,100,0.30);
+  --poster-gold-glow: rgba(242,136,0,0.30);
+  --poster-grain:     rgba(249,249,249,0.04);
+}
