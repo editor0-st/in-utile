@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taeyoung Ro — Architecture Portfolio (Draft)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+HK:wght@500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" rel="stylesheet">
+<link rel="stylesheet" href="print-portfolio.css">
+<style>
+  html,body{ margin:0; background:#2a2724; }
+  body{ font-family:"IBM Plex Mono",monospace; }
+  .topbar{ position:sticky; top:0; z-index:50; display:flex; align-items:center;
+    justify-content:space-between; gap:18px; padding:12px 22px;
+    background:rgba(24,22,20,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(246,243,236,.10); color:#d8d2c6; }
+  .topbar .tb-brand{ display:flex; align-items:baseline; gap:10px; }
+  .topbar .tb-cjk{ font-family:"Noto Serif HK","Noto Serif KR",serif; font-weight:700; color:#E84A3D; font-size:15px; letter-spacing:.04em; }
+  .topbar .tb-name{ font-family:"Spectral",serif; font-size:14px; letter-spacing:.02em; color:#f0ebe1; }
+  .topbar .tb-meta{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#8d867a; }
+  .topbar .tb-hint{ font-size:10px; letter-spacing:.06em; color:#8d867a; }
+  .topbar .tb-hint b{ color:#cabf66; font-weight:500; }
+
+  .gallery{ display:flex; flex-direction:column; align-items:center;
+    gap:46px; padding:46px 24px 90px; }
+  .spread-wrap{ position:relative; }
+  .scaler{ transform-origin:top left; }
+  .plate{ font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:#7c756a; text-align:center; margin:0 0 12px; }
+  .plate b{ color:#b9b0a2; font-weight:500; }
+  @media print{ .topbar,.plate{ display:none; } body{ background:#fff; } .gallery{ gap:0; padding:0; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-brand">
+    <span class="tb-cjk">無用</span>
+    <span class="tb-name">Taeyoung&nbsp;Ro</span>
+    <span class="tb-meta">Architecture Portfolio · Draft v0.1</span>
+  </div>
+  <div class="tb-hint">A3 spread preview · real mm/pt · <b>drag images onto frames to fill</b></div>
+</div>
+
+<main class="gallery" id="gallery">
+
+  <!-- ===================== 01 · COVER ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 01</b> — Cover · Half-title</p>
+    <div class="scaler">
+      <section class="spread no-spine" data-screen-label="Cover">
+        <!-- verso: epigraph (dark) -->
+        <div class="page verso dark">
+          <span class="han-wm" style="position:absolute; left:8mm; bottom:-14mm; font-size:150pt; color:rgba(246,243,236,.05);">用</span>
+          <div class="live">
+            <div class="col-2-6 stack" style="height:100%;">
+              <div class="meta" style="color:rgba(246,243,236,.5); margin-top:2mm;">序 · EPIGRAPH</div>
+              <div class="mt-a">
+                <p class="epigraph on-dark">“A drawing is a promise the building rarely keeps. This book is an account of the distance between the two — written by the person who made both.”
+                  <span class="src">無用 · In·Utile · author's note</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">ii</div>
+        </div>
+        <!-- recto: cover (dark) with formal wordmark lockup -->
+        <div class="page recto cover dark">
+          <span class="brand-cjk">批</span>
+          <div class="live">
+            <div class="col-1-6 stack" style="height:100%;">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between;">
+                <span class="name">TAEYOUNG&nbsp;RO &middot; 노태영</span>
+                <span class="meta" style="color:rgba(246,243,236,.5); text-align:right;">行 PRAXIS · 論 ESSAYS · 思 THEORY<br>SELF-CRITIQUE EDITION</span>
+              </div>
+              <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:6mm;">
+                <div class="lockup">
+                  <span class="cjk">無用</span>
+                  <span class="latin">in utile</span>
+                </div>
+                <div class="rule-crim" style="margin-top:10mm; width:60mm;"></div>
+                <h1 class="ptitle" style="margin-top:7mm;">Arguing with<br><em>my own</em> drawings</h1>
+                <p class="standfirst" style="margin-top:7mm;">Selected works &amp; self-critique<br>2018 – 2025 · Architecture</p>
+              </div>
+              <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+                <p class="standfirst">A4 / A3 · perfect-bound<br>edition of one</p>
+                <span class="year">26</span>
+              </div>
+            </div>
+          </div>
+          <div class="folio">i</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 02 · CONTENTS ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 02</b> — Table of Contents · 號 register</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Contents">
+        <!-- verso: title + intro -->
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4" style="margin-top:6mm;">
+              <div class="toc-cjk">目次</div>
+              <h2 class="toc-head" style="margin:8pt 0 0;">Contents</h2>
+              <div class="rule-crim" style="margin-top:8mm;"></div>
+              <p class="body" style="margin-top:8mm; max-width:80mm;">Six works, three registers. <b>行 Praxis</b> collects built and studio projects; <b>論 Essays</b> sets two of them into argument; <b>思 Theory</b> states the position the rest are measured against. A retrospective <em>Critique</em> runs beside every project.</p>
+            </div>
+          </div>
+          <div class="folio">02</div>
+        </div>
+        <!-- recto: index -->
+        <div class="page recto">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6" style="margin-top:6mm;">
+              <div class="meta" style="display:flex; justify-content:space-between; border-bottom:.6pt solid var(--rule); padding-bottom:5pt;">
+                <span>行 Praxis · Works</span><span>Year · Type · pp.</span>
+              </div>
+
+              <div class="toc-row"><span class="tnum">01</span>
+                <span><span class="ttitle">The Unbuilt Pavilion</span><div class="tstand">A threshold mistaken for a destination.</div></span>
+                <span class="tmeta">2019 · Studio<br>p. 08</span></div>
+
+              <div class="toc-row"><span class="tnum">02</span>
+                <span><span class="ttitle">Threshold Housing · 사이</span><div class="tstand">Forty units around a court I designed before its use.</div></span>
+                <span class="tmeta">2021 · Housing<br>p. 14</span></div>
+
+              <div class="toc-row"><span class="tnum">03</span>
+                <span><span class="ttitle">Tidal Library</span><div class="tstand">A public room that fills and empties with the river.</div></span>
+                <span class="tmeta">2022 · Cultural<br>p. 20</span></div>
+
+              <div class="toc-row"><span class="tnum">04</span>
+                <span><span class="ttitle">Seongsu Mixed-Block</span><div class="tstand">Internship work — and what the office overruled.</div></span>
+                <span class="tmeta">2023 · Practice<br>p. 26</span></div>
+
+              <div class="toc-row"><span class="tnum">05</span>
+                <span><span class="ttitle">Reweaving Cheonggye</span><div class="tstand">An urban seam I drew wider than the city wanted.</div></span>
+                <span class="tmeta">2024 · Urban<br>p. 30</span></div>
+
+              <div class="toc-row"><span class="tnum">06</span>
+                <span><span class="ttitle">Quiet Annex</span><div class="tstand">Thesis: a building that refuses to announce itself.</div></span>
+                <span class="tmeta">2025 · Thesis<br>p. 34</span></div>
+
+              <div class="meta" style="display:flex; justify-content:space-between; margin-top:9mm;">
+                <span>論 Essays · p. 18 &nbsp;&nbsp; 思 Theory · p. 32</span><span>歷 CV · p. 38</span>
+              </div>
+            </div>
+          </div>
+          <div class="folio">03</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 03 · DIVIDER 行 ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 03</b> — Section Divider · 行 Praxis · dark</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Divider 行">
+        <!-- verso: quiet section statement -->
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%; justify-content:flex-end; padding-bottom:6mm;">
+              <div class="meta">Part One</div>
+              <h2 class="heading" style="margin:6pt 0 0;">Works, and what they got wrong</h2>
+              <div class="rule-crim" style="margin-top:7mm;"></div>
+              <p class="body" style="margin-top:7mm; max-width:82mm;">Six projects in the order I made them. Each opens with what it was meant to be, shows what was drawn, and ends with what I would now say to the student who drew it. The buildings do not change; only the reading does.</p>
+            </div>
+          </div>
+          <div class="folio">06</div>
+        </div>
+        <!-- recto: dark divider -->
+        <div class="page recto dark divider">
+          <span class="wm">行</span>
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%;">
+              <div class="dmark" style="margin-top:4mm;"></div>
+              <div class="dnum" style="margin-top:8mm;">I</div>
+              <div class="mt-a" style="padding-bottom:4mm;">
+                <h2 class="dtitle">Praxis<br><span style="font-family:var(--f-han); font-weight:500; font-size:18pt;">행 · 行</span></h2>
+                <p class="dindex" style="margin-top:8mm;">01 Pavilion · 02 Threshold Housing<br>03 Tidal Library · 04 Seongsu Block<br>05 Cheonggye · 06 Quiet Annex</p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">07</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 04 · PROJECT 01 · INTRO ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 04</b> — Project 01 · Opening · 頭</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="P01 Intro">
+        <!-- verso: number, title, meta, lead -->
+        <div class="page verso">
+          <div class="live fill">
+            <div class="col-1-6 stack" style="height:100%;">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between;">
+                <span class="mark-num gold">01</span>
+                <span class="meta" style="text-align:right;">行 PRAXIS<br>DWG 01 / 12</span>
+              </div>
+              <div style="margin-top:8mm;">
+                <h1 class="title-disp">The Unbuilt Pavilion</h1>
+                <p class="lead" style="margin-top:6pt;">A second-year studio project, revisited six years later.</p>
+              </div>
+              <div class="hr" style="margin-top:9mm;"></div>
+              <div class="metablock" style="margin-top:7mm;">
+                <span class="k">Year</span><span class="v">2019 · Studio IV</span>
+                <span class="k">Type</span><span class="v">Open pavilion · 1 bay</span>
+                <span class="k">Role</span><span class="v">Sole author</span>
+                <span class="k">Site</span><span class="v">Riverbank, Sejong</span>
+                <span class="k">Tools</span><span class="v">Graphite, ink on trace · model 1:50</span>
+              </div>
+              <p class="body mt-a" style="max-width:86mm;">The pavilion was conceived as a threshold rather than a destination — a frame that registers the passage of weather and light across a single open bay. The structure resolves into four points of contact with the ground.</p>
+            </div>
+          </div>
+          <div class="folio">08</div>
+        </div>
+        <!-- recto: full-bleed hero, crosses to spine -->
+        <div class="page recto">
+          <div class="bleed" style="overflow:hidden;">
+            <image-slot id="p01-hero" sign="寫" shape="rect" placeholder="Drop hero — pavilion render / model photo (3:4)"></image-slot>
+          </div>
+          <div class="folio" style="color:var(--ivory); mix-blend-mode:difference;">09</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 05 · PROJECT 01 · DRAWING GRID ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 05</b> — Project 01 · Drawing / Image Grid · 圖</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="P01 Drawings">
+        <!-- verso: one dominant drawing -->
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-6 stack" style="height:100%;">
+              <div class="frame" style="flex:1;">
+                <image-slot id="p01-key" sign="圖" shape="rect" placeholder="Key drawing — long section 1:100"></image-slot>
+              </div>
+              <div class="cap" style="margin-top:4pt; display:flex; justify-content:space-between;">
+                <span class="caption"><b>Fig. 01</b> — Long section, 1:100. Graphite &amp; ink on trace, 2019.</span>
+                <span class="imgnote">行 01 / 12</span>
+              </div>
+            </div>
+          </div>
+          <div class="folio">10</div>
+        </div>
+        <!-- recto: a row of supporting frames + plan -->
+        <div class="page recto">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6" style="display:grid; grid-template-columns:1fr 1fr; gap:5mm;">
+              <div class="frame" style="grid-column:1 / 3; height:120mm;">
+                <image-slot id="p01-plan" sign="圖" shape="rect" placeholder="Ground plan 1:200"></image-slot>
+              </div>
+              <div class="frame" style="height:62mm;">
+                <image-slot id="p01-elev" sign="圖" shape="rect" placeholder="North elevation"></image-slot>
+              </div>
+              <div class="frame" style="height:62mm;">
+                <image-slot id="p01-det" sign="圖" shape="rect" placeholder="Junction detail 1:20"></image-slot>
+              </div>
+            </div>
+            <div class="col-1-6" style="margin-top:4pt; display:grid; grid-template-columns:1fr 1fr; gap:5mm;">
+              <span class="caption"><b>Fig. 02</b> — Ground plan, 1:200. The four-point structure carries an open bay.</span>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:5mm;">
+                <span class="caption"><b>Fig. 03</b> — North elev., 1:200.</span>
+                <span class="caption"><b>Fig. 04</b> — Eaves junction, 1:20.</span>
+              </div>
+            </div>
+          </div>
+          <div class="folio">11</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 06 · PROJECT 01 · TWO-VOICE ESSAY ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 06</b> — Project 01 · Description + Critique · 批 (signature spread)</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="P01 Two-voice">
+        <!-- verso: description, cols 1–4 -->
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4">
+              <div class="eyebrow">行 PRAXIS · 01 · DESCRIPTION</div>
+              <h3 class="heading" style="margin:8pt 0 0; font-size:18pt; line-height:24pt;">Brief &amp; site conditions</h3>
+              <div class="body dropcap" style="margin-top:7mm;">
+                <p>The proposal organises a single timber bay over a shared, top-lit threshold. Circulation runs along the north edge, leaving the south face uninterrupted for the river. The roof folds to admit indirect light while shedding rain to a central channel, and the whole resolves as one tectonic move from ground to ridge.</p>
+                <p>Materials were specified as cross-laminated timber on a board-marked concrete plinth. The structure was meant to read at a distance as a frame and, up close, as a careful set of joints — a building that explains how it stands.</p>
+              </div>
+            </div>
+            <div class="col-5-6 stack" style="justify-content:flex-end;">
+              <span class="caption">The pavilion was never built. It survives only as drawings and a single 1:50 model, photographed on the studio floor the night before the review.</span>
+            </div>
+          </div>
+          <div class="folio">12</div>
+        </div>
+        <!-- recto: critique sidebar + pull-quote -->
+        <div class="page recto">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6" style="margin-top:4mm;">
+              <div class="pull"><span class="pi">批 </span>“The court is beautiful in section and useless in plan.”</div>
+            </div>
+            <div class="col-1-3" style="margin-top:14mm;">
+              <div class="crit">
+                <div class="lbl"><span class="pi">批</span> Critique · 2026</div>
+                <p>I designed the light before I designed the work that was supposed to happen under it — and it shows in how thinly the programme is described. The roof does too much; it hides an unresolved plan beneath a gesture.</p>
+                <p>The drawing is honest about ambition and silent about how anyone would actually enter. Six years on, the lesson is simple and unflattering: I had drawn a mood and called it a building.</p>
+              </div>
+            </div>
+            <div class="col-4-6 stack" style="margin-top:14mm;">
+              <div class="eyebrow">What I'd keep</div>
+              <p class="body" style="margin-top:5mm;">The instinct to make a single structural idea legible was right. The failure was scope, not sensibility — and that distinction is the reason this project opens the book.</p>
+            </div>
+          </div>
+          <div class="folio">13</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 07 · PROJECT 02 · INTRO ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 07</b> — Project 02 · Opening (image-led verso)</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="P02 Intro">
+        <!-- verso: full-bleed hero -->
+        <div class="page verso">
+          <div class="bleed" style="overflow:hidden;">
+            <image-slot id="p02-hero" sign="寫" shape="rect" placeholder="Drop hero — courtyard view / model (4:5)"></image-slot>
+          </div>
+          <div class="folio" style="color:var(--ivory); mix-blend-mode:difference;">14</div>
+        </div>
+        <!-- recto: number, title, meta -->
+        <div class="page recto">
+          <div class="live fill">
+            <div class="col-1-6 stack" style="height:100%;">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between;">
+                <span class="mark-num gold">02</span>
+                <span class="meta" style="text-align:right;">行 PRAXIS<br>COLLECTIVE HOUSING</span>
+              </div>
+              <div style="margin-top:8mm;">
+                <h1 class="title-disp">Threshold Housing<br><span style="font-family:var(--f-han); font-weight:500; font-size:20pt; color:var(--charcoal-soft);">사이 주거</span></h1>
+                <p class="lead" style="margin-top:6pt;">Forty units arranged around a court I designed before I understood its use.</p>
+              </div>
+              <div class="hr" style="margin-top:9mm;"></div>
+              <div class="metablock" style="margin-top:7mm;">
+                <span class="k">Year</span><span class="v">2021 · Studio VII</span>
+                <span class="k">Type</span><span class="v">Collective housing · 40 units</span>
+                <span class="k">Role</span><span class="v">Sole author</span>
+                <span class="k">Site</span><span class="v">Mangwon-dong, Seoul</span>
+              </div>
+              <p class="body mt-a" style="max-width:90mm;">Three timber volumes share a single top-lit court; circulation runs the north edge so the south face stays open to the lane. The roof folds to bring indirect light to the deep plan.</p>
+            </div>
+          </div>
+          <div class="folio">15</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 08 · PROJECT 02 · DRAWINGS + CRITIQUE ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 08</b> — Project 02 · Drawings + outer-column Critique</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="P02 Drawings">
+        <!-- verso: drawing pair + description -->
+        <div class="page verso">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6 frame" style="height:118mm;">
+              <image-slot id="p02-key" sign="圖" shape="rect" placeholder="Typical floor plan 1:200"></image-slot>
+            </div>
+            <div class="col-1-6 cap" style="margin-top:4pt;">
+              <span class="caption"><b>Fig. 05</b> — Typical floor, 1:200. The court is the only space every unit must cross.</span>
+            </div>
+            <div class="col-1-4" style="margin-top:8mm;">
+              <p class="body">Units are paired across a shared stair; each pair brackets a recessed entry — the <em>사이</em>, the in-between — so that arriving home is a sequence of thresholds rather than a single door. The section keeps the court in view from every landing.</p>
+            </div>
+          </div>
+          <div class="folio">16</div>
+        </div>
+        <!-- recto: two frames + critique sidebar -->
+        <div class="page recto">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-4" style="display:grid; gap:5mm;">
+              <div class="frame" style="height:78mm;">
+                <image-slot id="p02-sec" sign="圖" shape="rect" placeholder="Cross-section 1:100"></image-slot>
+              </div>
+              <div class="frame" style="height:78mm;">
+                <image-slot id="p02-court" sign="型" shape="rect" placeholder="Court study model"></image-slot>
+              </div>
+            </div>
+            <div class="col-5-6">
+              <div class="crit">
+                <div class="lbl"><span class="pi">批</span> Critique</div>
+                <p>Forty families, and I drew the court for the perspective, not for them. The thresholds are lovely and the units behind them are mean — single-aspect, deep, under-lit.</p>
+                <p>I would trade two metres of court for a second window in every plan. The internship taught me that; the studio didn't.</p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">17</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 09 · DIVIDER 論 ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 09</b> — Section Divider · 論 Essays · dark</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Divider 論">
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%; justify-content:flex-end; padding-bottom:6mm;">
+              <div class="meta">Part Two</div>
+              <h2 class="heading" style="margin:6pt 0 0;">Two projects, set against each other</h2>
+              <div class="rule-crim" style="margin-top:7mm;"></div>
+              <p class="body" style="margin-top:7mm; max-width:82mm;">Where Praxis judges projects one at a time, the essays put two in the same room. The argument here is not which is better, but what they share — and what the repetition of a mistake says about the person making it.</p>
+            </div>
+          </div>
+          <div class="folio">18</div>
+        </div>
+        <div class="page recto dark divider">
+          <span class="wm">論</span>
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%;">
+              <div class="dmark" style="margin-top:4mm;"></div>
+              <div class="dnum" style="margin-top:8mm;">II</div>
+              <div class="mt-a" style="padding-bottom:4mm;">
+                <h2 class="dtitle">Essays<br><span style="font-family:var(--f-han); font-weight:500; font-size:18pt;">론 · 論</span></h2>
+                <p class="dindex" style="margin-top:8mm;">On the court, and the window<br>it kept costing me</p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">19</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 10 · ESSAY · TEXT-LED ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 10</b> — Essay / Text page · 論 · pull-quote + sidebar</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Essay">
+        <!-- verso: running essay -->
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4">
+              <div class="eyebrow">論 ESSAY · 01</div>
+              <h3 class="heading" style="margin:8pt 0 14pt; font-size:20pt; line-height:26pt;">The court was always an excuse</h3>
+              <div class="body dropcap">
+                <p>Twice now I have organised a building around a beautiful void and let the rooms around it suffer. The pavilion did it with a roof; the housing did it with a court. In both, the seductive drawing arrived first and the plan was bent to keep it.</p>
+                <p>This is not a problem of talent but of order — of what I let myself solve before I had earned the right to. A void is the easiest thing to draw and the hardest to justify, because it asks nothing of programme until programme is the only thing left.</p>
+                <p>The correction is procedural. Plan the dark rooms first. Let the void be what remains, not what begins. The internship year, for all its frustrations, was the first time I was made to.</p>
+              </div>
+            </div>
+            <div class="col-5-6 stack" style="justify-content:flex-start; margin-top:30mm;">
+              <div class="crit" style="border:0; padding-left:5mm;">
+                <div class="lbl"><span class="pi">批</span> Margin</div>
+                <p>Two projects, one habit. The honest portfolio names the habit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">20</div>
+        </div>
+        <!-- recto: pull-quote + supporting image -->
+        <div class="page recto">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6" style="margin-top:6mm;">
+              <div class="pull" style="font-size:22pt; line-height:30pt;">“A void is the easiest thing to draw and the hardest to justify.”</div>
+            </div>
+            <div class="col-1-6 frame" style="margin-top:14mm; height:118mm;">
+              <image-slot id="essay-img" sign="圖" shape="rect" placeholder="Comparative diagram — pavilion roof / housing court"></image-slot>
+            </div>
+            <div class="col-1-6 cap" style="margin-top:4pt;">
+              <span class="caption"><b>Fig. 06</b> — Two voids, redrawn at the same scale to compare what each subtracts from its plan.</span>
+            </div>
+          </div>
+          <div class="folio">21</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 11 · DIVIDER 思 ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 11</b> — Section Divider · 思 Theory · dark</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Divider 思">
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%; justify-content:flex-end; padding-bottom:6mm;">
+              <div class="meta">Part Three</div>
+              <h2 class="heading" style="margin:6pt 0 0;">The position the work is measured against</h2>
+              <div class="rule-crim" style="margin-top:7mm;"></div>
+              <p class="body" style="margin-top:7mm; max-width:82mm;">A short statement of what I now think architecture is for. It is placed last on purpose: a thesis earns its right to be stated only after the work that tested it.</p>
+            </div>
+          </div>
+          <div class="folio">32</div>
+        </div>
+        <div class="page recto dark divider">
+          <span class="wm">思</span>
+          <div class="live">
+            <div class="col-1-4 stack" style="height:100%;">
+              <div class="dmark" style="margin-top:4mm;"></div>
+              <div class="dnum" style="margin-top:8mm;">III</div>
+              <div class="mt-a" style="padding-bottom:4mm;">
+                <h2 class="dtitle">Theory<br><span style="font-family:var(--f-han); font-weight:500; font-size:18pt;">사 · 思</span></h2>
+                <p class="dindex" style="margin-top:8mm;">Useful uselessness ·<br>無用 as a working method</p>
+              </div>
+            </div>
+          </div>
+          <div class="folio">33</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 12 · THEORY ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 12</b> — Theory / Statement · 思</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="Theory">
+        <div class="page verso">
+          <div class="live">
+            <div class="col-1-4">
+              <div class="eyebrow">思 THEORY · STATEMENT</div>
+              <h3 class="heading" style="margin:8pt 0 14pt; font-size:20pt; line-height:26pt;">On useful uselessness</h3>
+              <div class="body dropcap">
+                <p>無用 — <em>wú yòng</em>, the useless — is not a rejection of function. It is a discipline: the part of a building that does no measurable work is the part most exposed to judgement, and therefore the part that must be most exact. A threshold carries no load and decides everything.</p>
+                <p>My early projects mistook the useless for the free. They are not the same. The free is unaccountable; the useless is accountable precisely because it has no excuse. This portfolio is built to hold me to that.</p>
+              </div>
+            </div>
+            <div class="col-5-6 stack" style="justify-content:flex-end;">
+              <span class="caption">無用 · the useless, drawn exactly.</span>
+            </div>
+          </div>
+          <div class="folio">34</div>
+        </div>
+        <div class="page recto crimson">
+          <div class="live" style="align-content:center;">
+            <div class="col-1-6" style="text-align:center;">
+              <span class="han-wm" style="font-size:128pt; font-weight:700; color:rgba(246,243,236,.12);">無用</span>
+              <div class="pull" style="margin-top:12mm; font-size:25pt; line-height:33pt; color:rgba(246,243,236,.76);">A threshold carries no load <span style="color:var(--ivory);">and decides everything.</span></div>
+              <div class="meta" style="margin-top:14mm;">思 THEORY · 無用 — USEFUL USELESSNESS</div>
+            </div>
+          </div>
+          <div class="folio">35</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== 13 · CV / COLOPHON ===================== -->
+  <div class="spread-wrap">
+    <p class="plate"><b>Spread 13</b> — Curriculum &amp; Contact · 歷 · colophon</p>
+    <div class="scaler">
+      <section class="spread" data-screen-label="CV">
+        <!-- verso: CV register -->
+        <div class="page verso">
+          <div class="live" style="align-content:start;">
+            <div class="col-1-6" style="margin-top:4mm;">
+              <h2 class="title-disp" style="font-size:24pt;">Taeyoung Ro</h2>
+              <div class="rule-crim" style="margin-top:5mm;"></div>
+              <div class="meta" style="margin-top:9mm;">歷 EDUCATION</div>
+              <div class="cv-row"><span class="yr">2019—25</span><span class="ent"><b>M.Arch</b>, Seoul National University &nbsp;<span>· thesis: Quiet Annex</span></span></div>
+              <div class="cv-row"><span class="yr">2015—19</span><span class="ent"><b>B.Sc Architecture</b>, Hanyang University &nbsp;<span>· cum laude</span></span></div>
+              <div class="meta" style="margin-top:9mm;">歷 PRACTICE</div>
+              <div class="cv-row"><span class="yr">2023</span><span class="ent"><b>Architecture Intern</b>, SoA &nbsp;<span>· Seongsu mixed-use, DD set</span></span></div>
+              <div class="cv-row"><span class="yr">2022</span><span class="ent"><b>Summer Intern</b>, Office of <span>·</span> &nbsp;<span>competition team</span></span></div>
+              <div class="meta" style="margin-top:9mm;">歷 SKILLS &amp; AWARDS</div>
+              <div class="cv-row"><span class="yr">Tools</span><span class="ent"><span>Rhino · AutoCAD · Affinity · hand drafting · timber &amp; concrete modelling</span></span></div>
+              <div class="cv-row"><span class="yr">2024</span><span class="ent"><b>SNU Thesis Prize</b>, <span>shortlist</span></span></div>
+            </div>
+          </div>
+          <div class="folio">38</div>
+        </div>
+        <!-- recto: contact + colophon -->
+        <div class="page recto">
+          <span class="brand-cjk" style="opacity:.55;">書信</span>
+          <div class="live" style="align-content:start;">
+            <div class="col-1-4" style="margin-top:30mm;">
+              <div class="meta">歷 CONTACT</div>
+              <div class="metablock" style="margin-top:6mm;">
+                <span class="k">Email</span><span class="v">taeyoung.ro@email.com</span>
+                <span class="k">Site</span><span class="v">taeyoungro.work</span>
+                <span class="k">Based</span><span class="v">Seoul, KR</span>
+              </div>
+            </div>
+            <div class="col-1-6 mt-a">
+              <div class="hr"></div>
+              <p class="colophon" style="margin-top:6mm;">無用 · IN·UTILE — TAEYOUNG RO ARCHITECTURE PORTFOLIO · DRAFT v0.1 · 2026<br>
+              SET IN BODONI MODA · SPECTRAL · PRETENDARD · CORMORANT GARAMOND · IBM PLEX MONO · NOTO SERIF KR<br>
+              A4 PORTRAIT / A3 LANDSCAPE · CMYK · PSO UNCOATED v3 · CRIMSON PRIME · 批 TWO-VOICE SYSTEM</p>
+            </div>
+          </div>
+          <div class="folio">39</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+
+<script src="image-slot.js"></script>
+<script>
+  // Real-mm spreads scaled to fit the viewport width.
+  function fit(){
+    var pxPerMM = document.getElementById('mm-probe').getBoundingClientRect().width / 100;
+    var spreadW = 420 * pxPerMM, spreadH = 297 * pxPerMM, singleH = 297 * pxPerMM;
+    var vw = window.innerWidth || document.documentElement.clientWidth || 1280;
+    var avail = Math.min(vw - 48, 1480);
+    if (avail < 320) avail = Math.min(1280, spreadW);
+    var scale = Math.max(0.2, Math.min(avail / spreadW, 1));
+    document.querySelectorAll('.spread-wrap').forEach(function(w){
+      var sp = w.querySelector('.spread');
+      var sc = w.querySelector('.scaler');
+      sc.style.transform = 'scale(' + scale + ')';
+      var h = (sp.classList.contains('single') ? singleH : spreadH);
+      sc.style.height = (h * scale) + 'px';
+      w.style.width = (spreadW * scale) + 'px';
+    });
+  }
+  var probe = document.createElement('div');
+  probe.id = 'mm-probe';
+  probe.style.cssText = 'position:absolute;width:100mm;height:0;left:-9999px;top:0;';
+  document.body.appendChild(probe);
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  if (window.ResizeObserver){ new ResizeObserver(fit).observe(document.documentElement); }
+  requestAnimationFrame(fit);
+  [60,200,500,1000].forEach(function(t){ setTimeout(fit, t); });
+  fit();
+</script>
+</body>
+</html>

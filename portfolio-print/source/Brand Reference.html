@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無用 In Utile — Brand &amp; Design Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+HK:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+  :root {
+    --paper:#FAF8F2; --ivory:#F6F3EC; --charcoal:#3D3936; --charcoal-soft:#5E574F;
+    --crimson:#8A2D2B; --crimson-dark:#E84A3D; --crimson-deep:#6B2120;
+    --ghost:#C7BEAF; --ghost-2:#6E665B; --grid:#ECE6DA; --rule:rgba(61,57,54,0.15);
+    --navy:#263245; --teal:#234B4D; --gold:#B5965C; --gold-deep:#7E682F;
+    --rose:#B88A87; --tobacco:#70523E; --ink0:#1E1B19; --ink1:#262220; --on-dark:#F6F3EC;
+    --f-serif:'Spectral',Georgia,serif;
+    --f-num:'Bodoni Moda','Times New Roman',serif;
+    --f-serif-kr:'Noto Serif KR',serif;
+    --f-cjk:'Noto Serif HK','Noto Serif KR',serif;
+    --f-sans:'Pretendard Variable','Pretendard',system-ui,sans-serif;
+    --f-serif-body:'Cormorant Garamond',Georgia,serif;
+    --f-mono:'IBM Plex Mono','IBM Plex Sans KR',ui-monospace,monospace;
+    --cell:24px;
+  }
+  * { box-sizing: border-box; }
+  html { scrollbar-gutter: stable; }
+  body {
+    margin: 0; background: var(--paper); color: var(--charcoal);
+    font-family: var(--f-sans); font-weight: 300; line-height: 1.7;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: var(--cell) var(--cell);
+  }
+  .doc { max-width: 1104px; margin: 0 auto; padding: 72px 48px 120px; }
+
+  /* ---------- shared atoms ---------- */
+  .eyebrow {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ghost-2); display: flex; gap: 14px; align-items: baseline;
+  }
+  .eyebrow .no { color: var(--crimson); }
+  .sec { margin-top: 96px; border-top: 1px solid var(--charcoal); padding-top: 22px; }
+  .sec h2 {
+    font-family: var(--f-serif); font-weight: 500; font-size: 30px; letter-spacing: -0.018em;
+    margin: 6px 0 0; display: flex; align-items: baseline; gap: 14px;
+  }
+  .sec h2 .han { font-family: var(--f-cjk); font-weight: 700; font-size: 19px; color: var(--ghost-2); }
+  .sec .note {
+    font-family: var(--f-sans); font-size: 14px; font-weight: 300; color: var(--charcoal-soft);
+    max-width: 640px; margin: 12px 0 0; text-wrap: pretty;
+  }
+  .mono { font-family: var(--f-mono); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { border: 1px solid var(--rule); background: var(--paper); }
+  .cap {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ghost-2); padding: 10px 14px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- masthead ---------- */
+  .mast { border-bottom: 1px solid var(--charcoal); padding-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .mast h1 { font-family: var(--f-serif); font-weight: 500; font-size: clamp(34px, 4vw, 48px); letter-spacing: -0.02em; line-height: 1.05; margin: 10px 0 0; }
+  .mast .han { font-family: var(--f-cjk); font-weight: 700; color: var(--crimson); }
+
+  /* ---------- 01 wordmark ---------- */
+  .wm-stage { display: grid; place-items: center; padding: 64px 24px 56px; position: relative; overflow: hidden; }
+  .wm-cjk { font-family: var(--f-cjk); font-weight: 700; font-size: 128px; line-height: 0.9; letter-spacing: 0.01em; }
+  .wm-latin { font-family: var(--f-num); font-weight: 600; font-size: 72px; line-height: 1.05; letter-spacing: 0.01em; margin-top: 2px; text-align: center; }
+  .wm-stage--dark { background: var(--ink0); color: var(--on-dark); }
+  .wm-stage--dark .cap-in { color: rgba(246,243,236,0.45); }
+  .wm-stage--crimson { background: var(--crimson); color: var(--on-dark); }
+  .wm-sm .wm-cjk { font-size: 72px; }
+  .wm-sm .wm-latin { font-size: 40px; }
+  .wm-rules { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .wm-rule { border-top: 1px solid var(--rule); padding-top: 10px; font-size: 13px; font-weight: 300; color: var(--charcoal-soft); }
+  .wm-rule b { font-weight: 500; color: var(--charcoal); }
+
+  /* ---------- 02 color ---------- */
+  .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .sw { border: 1px solid var(--rule); }
+  .sw .chip { height: 88px; }
+  .sw .meta { padding: 9px 11px 10px; background: var(--paper); border-top: 1px solid var(--rule); }
+  .sw .nm { font-size: 12.5px; font-weight: 500; }
+  .sw .hx { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--ghost-2); text-transform: uppercase; }
+  .sw .rl { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.06em; color: var(--ghost-2); margin-top: 3px; }
+  .prime-band { display: grid; grid-template-columns: 240px 1fr; border: 1px solid var(--rule); }
+  .prime-band .fill { background: var(--crimson); }
+  .prime-band .txt { padding: 20px 24px; font-size: 14px; font-weight: 300; color: var(--charcoal-soft); }
+  .prime-band .txt b { font-weight: 500; color: var(--charcoal); }
+  .bar { display: flex; height: 28px; border: 1px solid var(--rule); overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+
+  /* ---------- 03 type ---------- */
+  .type-row { display: grid; grid-template-columns: 300px 1fr 170px; gap: 24px; align-items: baseline; border-bottom: 1px solid var(--rule); padding: 20px 0; }
+  .type-row .role { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ghost-2); }
+  .type-row .role b { display: block; font-family: var(--f-sans); font-weight: 500; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--charcoal); margin-bottom: 3px; }
+  .type-row .spec { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--ghost-2); text-align: right; line-height: 1.8; }
+  .scale-row { display: flex; align-items: baseline; gap: 24px; border-bottom: 1px solid var(--rule); padding: 14px 0; }
+  .scale-row .lab { width: 150px; flex: none; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ghost-2); }
+  .scale-row .px { width: 180px; flex: none; font-family: var(--f-mono); font-size: 10.5px; color: var(--gold-deep); letter-spacing: 0.06em; }
+  .scale-row .sample { font-family: var(--f-serif); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+  /* ---------- 04 glyphs ---------- */
+  .glyphs { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--rule); }
+  .gl { border-right: 1px solid var(--rule); padding: 22px 8px 16px; text-align: center; }
+  .gl:last-child { border-right: 0; }
+  .gl .g { font-family: var(--f-cjk); font-weight: 700; font-size: 44px; line-height: 1; }
+  .gl .e { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ghost-2); margin-top: 12px; }
+  .gl .n { font-family: var(--f-num); font-weight: 600; font-size: 11px; color: var(--gold); margin-top: 2px; }
+
+  /* ---------- 05 grid & space ---------- */
+  .space-bar { display: flex; align-items: flex-end; gap: 8px; height: 170px; padding: 16px; border: 1px solid var(--rule); }
+  .space-bar div { background: var(--crimson); opacity: 0.85; width: 34px; position: relative; }
+  .space-bar span { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-family: var(--f-mono); font-size: 9px; color: var(--ghost-2); }
+  .rules-list { font-size: 14px; font-weight: 300; color: var(--charcoal-soft); margin: 0; padding: 0; list-style: none; }
+  .rules-list li { border-bottom: 1px solid var(--rule); padding: 11px 0; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .rules-list b { font-weight: 500; color: var(--charcoal); flex: none; width: 190px; }
+  /* section 06 runs three narrow columns — shorter label column + wrap so a long
+     value (「English · 漢字」) can never push the page wider than the viewport */
+  .mo .rules-list b { width: 122px; }
+  .mo .rules-list li { min-width: 0; }
+
+  /* ---------- 06 motion ---------- */
+  .mo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .foot { margin-top: 96px; border-top: 1px solid var(--charcoal); padding-top: 16px; display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ghost-2); }
+
+  @media (max-width: 1000px) {
+    .mo { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 860px) {
+    .doc { padding: 48px 22px 80px; }
+    .grid2, .grid3, .mo { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: repeat(3, 1fr); }
+    .glyphs { grid-template-columns: repeat(4, 1fr); }
+    .gl { border-bottom: 1px solid var(--rule); }
+    .type-row { grid-template-columns: 1fr; gap: 8px; }
+    .type-row .spec { text-align: left; }
+    .prime-band { grid-template-columns: 1fr; } .prime-band .fill { height: 72px; }
+    .scale-row .px { width: 110px; }
+    .wm-rules { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background-image: none; }
+    .sec { break-inside: avoid; margin-top: 56px; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- ───────── Masthead ───────── -->
+  <header class="mast">
+    <div>
+      <div class="eyebrow"><span class="no">無用 / IN UTILE</span><span>Brand &amp; Design Reference</span></div>
+      <h1><span class="han">無用</span> In Utile — 디자인 레퍼런스</h1>
+    </div>
+    <div class="eyebrow" style="text-align:right;">Architecture &amp; Philosophy Magazine · v2 · 2026</div>
+  </header>
+
+  <!-- ───────── 01 Wordmark ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">01</span><span>Wordmark · 商標</span></div>
+    <h2>워드마크와 록업 <span class="han">無用</span></h2>
+    <p class="note">한자 워드마크 <b>無用</b>(Noto Serif HK · 700)과 라틴 워드마크 <b>in utile</b>(Bodoni Moda · 600 · 소문자)의 수직 록업이 기본형입니다. 라틴은 항상 소문자로 — 대문자 조합(IN UTILE)은 메타 라벨에서만 사용합니다.</p>
+
+    <div class="grid2" style="margin-top:28px;">
+      <figure class="card" style="margin:0;">
+        <div class="wm-stage">
+          <div>
+            <div class="wm-cjk" style="text-align:center;">無用</div>
+            <div class="wm-latin">in utile</div>
+          </div>
+        </div>
+        <figcaption class="cap"><span>Primary lockup</span><span>Paper #FAF8F2</span></figcaption>
+      </figure>
+      <figure class="card" style="margin:0;">
+        <div class="wm-stage wm-stage--dark">
+          <div>
+            <div class="wm-cjk" style="text-align:center;">無用</div>
+            <div class="wm-latin">in utile</div>
+          </div>
+        </div>
+        <figcaption class="cap"><span>On ink (dark theme)</span><span>Ink #1E1B19</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="grid3" style="margin-top:24px;">
+      <figure class="card wm-sm" style="margin:0;">
+        <div class="wm-stage"><div class="wm-cjk" style="color:var(--crimson);">無用</div></div>
+        <figcaption class="cap"><span>CJK only · crimson</span><span>#8A2D2B</span></figcaption>
+      </figure>
+      <figure class="card wm-sm" style="margin:0;">
+        <div class="wm-stage wm-stage--crimson"><div class="wm-cjk">無用</div></div>
+        <figcaption class="cap"><span>Reversed on prime</span><span>Ivory on crimson</span></figcaption>
+      </figure>
+      <figure class="card wm-sm" style="margin:0;">
+        <div class="wm-stage"><div class="wm-latin" style="margin:0;">in utile</div></div>
+        <figcaption class="cap"><span>Latin only</span><span>Bodoni Moda 600</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="wm-rules">
+      <div class="wm-rule"><b>여백.</b> 워드마크 사방으로 無의 한 글자 높이(1×)만큼 비웁니다.</div>
+      <div class="wm-rule"><b>금지.</b> 기울이기·그림자·외곽선·그라데이션·임의 색상 변경 불가. 허용 색은 charcoal · ivory · crimson 세 가지뿐.</div>
+      <div class="wm-rule"><b>워터마크.</b> 페이지 모서리에 잘려 나가는 大形 한자(ghost #C7BEAF · opacity 0.4)는 페이지당 1회만.</div>
+    </div>
+  </section>
+
+  <!-- ───────── 02 Color ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">02</span><span>Color · 色</span></div>
+    <h2>프라임 컬러와 팔레트 <span class="han">色</span></h2>
+
+    <div class="prime-band" style="margin-top:28px;">
+      <div class="fill"></div>
+      <div class="txt">
+        <b>Prime — Crimson #8A2D2B.</b> 사이트의 유일한 강조색. 면적 상한 <b>5–10%</b> — 활성 상태·호버·강조 텍스트·얇은 룰에만 씁니다. 넓은 면을 채우는 용도가 아닙니다. 다크 테마에서는 가독을 위해 <span class="mono" style="font-size:11px;">#E84A3D</span>로 격상됩니다.
+      </div>
+    </div>
+
+    <div style="margin-top:24px;" class="eyebrow">Base — Journal neutrals</div>
+    <div class="swatches" style="margin-top:12px;">
+      <div class="sw"><div class="chip" style="background:#FAF8F2;"></div><div class="meta"><div class="nm">Paper</div><div class="hx">#FAF8F2</div><div class="rl">bg.canvas</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F6F3EC;"></div><div class="meta"><div class="nm">Ivory</div><div class="hx">#F6F3EC</div><div class="rl">bg.subtle · on-dark text</div></div></div>
+      <div class="sw"><div class="chip" style="background:#3D3936;"></div><div class="meta"><div class="nm">Charcoal</div><div class="hx">#3D3936</div><div class="rl">text.primary</div></div></div>
+      <div class="sw"><div class="chip" style="background:#6E665B;"></div><div class="meta"><div class="nm">Ghost 2</div><div class="hx">#6E665B</div><div class="rl">meta text ≥4.5:1</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C7BEAF;"></div><div class="meta"><div class="nm">Ghost</div><div class="hx">#C7BEAF</div><div class="rl">decorative only</div></div></div>
+      <div class="sw"><div class="chip" style="background:#ECE6DA;"></div><div class="meta"><div class="nm">Grid</div><div class="hx">#ECE6DA</div><div class="rl">graph-paper line</div></div></div>
+    </div>
+
+    <div style="margin-top:24px;" class="eyebrow">Secondary — accents (small areas only)</div>
+    <div class="swatches" style="margin-top:12px;">
+      <div class="sw"><div class="chip" style="background:#8A2D2B;"></div><div class="meta"><div class="nm">Crimson</div><div class="hx">#8A2D2B</div><div class="rl">prime · 5–10% cap</div></div></div>
+      <div class="sw"><div class="chip" style="background:#263245;"></div><div class="meta"><div class="nm">Navy</div><div class="hx">#263245</div><div class="rl">accent.theory</div></div></div>
+      <div class="sw"><div class="chip" style="background:#234B4D;"></div><div class="meta"><div class="nm">Teal</div><div class="hx">#234B4D</div><div class="rl">accent.hover</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B5965C;"></div><div class="meta"><div class="nm">Gold</div><div class="hx">#B5965C</div><div class="rl">large numerals</div></div></div>
+      <div class="sw"><div class="chip" style="background:#7E682F;"></div><div class="meta"><div class="nm">Gold Deep</div><div class="hx">#7E682F</div><div class="rl">small labels</div></div></div>
+      <div class="sw"><div class="chip" style="background:#70523E;"></div><div class="meta"><div class="nm">Tobacco</div><div class="hx">#70523E</div><div class="rl">cinema accent</div></div></div>
+    </div>
+
+    <div style="margin-top:24px;" class="eyebrow">Dark theme · ink</div>
+    <div class="swatches" style="margin-top:12px;">
+      <div class="sw"><div class="chip" style="background:#1E1B19;"></div><div class="meta"><div class="nm">Ink 0</div><div class="hx">#1E1B19</div><div class="rl">dark bg.canvas</div></div></div>
+      <div class="sw"><div class="chip" style="background:#262220;"></div><div class="meta"><div class="nm">Ink 1</div><div class="hx">#262220</div><div class="rl">dark bg.subtle</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E84A3D;"></div><div class="meta"><div class="nm">Crimson Dark</div><div class="hx">#E84A3D</div><div class="rl">dark prime</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B88A87;"></div><div class="meta"><div class="nm">Rose</div><div class="hx">#B88A87</div><div class="rl">cinema accent</div></div></div>
+      <div class="sw"><div class="chip" style="background:#A89F92;"></div><div class="meta"><div class="nm">Ghost 2 / dark</div><div class="hx">#A89F92</div><div class="rl">meta on ink</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F6F3EC;"></div><div class="meta"><div class="nm">On-dark</div><div class="hx">#F6F3EC</div><div class="rl">text on ink·crimson</div></div></div>
+    </div>
+
+    <div style="margin-top:24px;" class="eyebrow">Area model — a page at a glance</div>
+    <div class="bar" style="margin-top:12px;">
+      <i style="width:72%;background:#FAF8F2;"></i><i style="width:14%;background:#F6F3EC;"></i><i style="width:7%;background:#3D3936;"></i><i style="width:4%;background:#C7BEAF;"></i><i style="width:3%;background:#8A2D2B;"></i>
+    </div>
+    <div class="cap" style="border:0;padding:8px 2px;"><span>Paper 72 · Ivory 14 · Charcoal 7 · Ghost 4 · Crimson 3</span><span>radius 0 · no shadows</span></div>
+  </section>
+
+  <!-- ───────── 03 Typography ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">03</span><span>Type · 活字</span></div>
+    <h2>타이포그래피 <span class="han">活字</span></h2>
+    <p class="note">언어별로 서체가 갈라지는 <b>이중문자 체계</b>입니다. 제목은 EN Spectral / KR 명조(MICE Myungjo → Source Han Serif K), 한자는 Noto Serif HK 700, 숫자·워드마크는 Bodoni Moda, 본문·UI는 Pretendard, 인용은 Cormorant Garamond 이탤릭, 메타는 IBM Plex Mono.</p>
+
+    <div style="margin-top:16px;">
+      <div class="type-row">
+        <div class="role"><b>Title · EN</b>Spectral 500 · tr −0.018em</div>
+        <div style="font-family:var(--f-serif);font-weight:500;font-size:34px;letter-spacing:-0.018em;line-height:1.1;">The Politics of Density</div>
+        <div class="spec">--f-serif<br>EN: text-wrap balance</div>
+      </div>
+      <div class="type-row">
+        <div class="role"><b>Title · KR</b>明朝 500 · tr −0.02em</div>
+        <div style="font-family:var(--f-serif-kr);font-weight:500;font-size:32px;letter-spacing:-0.02em;line-height:1.2;">밀도의 정치학</div>
+        <div class="spec">--f-serif-kr<br>MICE Myungjo 우선</div>
+      </div>
+      <div class="type-row">
+        <div class="role"><b>Display Hanja</b>Noto Serif HK 700</div>
+        <div style="font-family:var(--f-cjk);font-weight:700;font-size:40px;line-height:1;">密度 · 無用 · 書庫</div>
+        <div class="spec">--f-cjk · wght 700 고정</div>
+      </div>
+      <div class="type-row">
+        <div class="role"><b>Numerals · Wordmark</b>Bodoni Moda 600–700</div>
+        <div style="font-family:var(--f-num);font-weight:700;font-size:38px;line-height:1;font-variation-settings:'opsz' 26;">08 · 1997 — 2026</div>
+        <div class="spec">--f-num · opsz 26<br>大형 숫자는 gold</div>
+      </div>
+      <div class="type-row">
+        <div class="role"><b>Body · 共通</b>Pretendard 300–400 · lh 1.7</div>
+        <div style="font-size:16px;font-weight:300;max-width:560px;">도시는 우리가 들여다보는 풍경이 아니라, 우리가 그 안에서 만들어지는 장(場)이다. Body text reads in Pretendard for both scripts.</div>
+        <div class="spec">--f-sans · 18px 기준</div>
+      </div>
+      <div class="type-row">
+        <div class="role"><b>Quote · 引用</b>Cormorant It · KR은 정체 명조</div>
+        <div style="font-family:var(--f-serif-body);font-style:italic;font-size:24px;line-height:1.5;">“Architecture is a single line of commentary written over the text of the city.”</div>
+        <div class="spec">--f-serif-body<br>KR: --f-serif-kr 정체</div>
+      </div>
+      <div class="type-row" style="border-bottom:0;">
+        <div class="role"><b>Meta · 補助</b>IBM Plex Mono · caps · tnum</div>
+        <div class="mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ghost-2);">ISSUE 08 — 號 — 都市 THE CITY AS THEORY — MAY 2025 · 8 PIECES · 70 MIN</div>
+        <div class="spec">--f-mono · tr 0.08–0.2em</div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;" class="eyebrow">Scale — desktop maxima (clamp responsive)</div>
+    <div style="margin-top:8px;">
+      <div class="scale-row"><span class="lab">Issue / Hero</span><span class="px">clamp(52–56 → 96)</span><span class="sample" style="font-size:64px;">無用 The City</span></div>
+      <div class="scale-row"><span class="lab">Page title</span><span class="px">clamp(40 → 64)</span><span class="sample" style="font-size:48px;">Archive 書庫</span></div>
+      <div class="scale-row"><span class="lab">Article title</span><span class="px">clamp(34 → 48)</span><span class="sample" style="font-size:38px;">The Mark of the Hammer</span></div>
+      <div class="scale-row"><span class="lab">Subtitle</span><span class="px">clamp(20 → 24)</span><span class="sample" style="font-family:var(--f-serif-body);font-style:italic;font-weight:400;font-size:24px;">A reading of Antivilla, Potsdam</span></div>
+      <div class="scale-row"><span class="lab">Body</span><span class="px">18px · lh 1.70</span><span class="sample" style="font-family:var(--f-sans);font-weight:300;font-size:18px;letter-spacing:0;">본문은 18px Pretendard, 행간 1.7.</span></div>
+      <div class="scale-row" style="border-bottom:0;"><span class="lab">Caption / Meta</span><span class="px">13 / 12px · mono</span><span class="sample mono" style="font-size:12px;letter-spacing:0.14em;color:var(--ghost-2);">FIG.01 — KRAMPNITZ, POTSDAM · 2014</span></div>
+    </div>
+  </section>
+
+  <!-- ───────── 04 Glyph system ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">04</span><span>Glyphs · 字</span></div>
+    <h2>섹션 한자 체계 <span class="han">字</span></h2>
+    <p class="note">한자 한 글자가 섹션의 기호로 기능합니다. 내비게이션·페이지 워터마크·표지 사인에 일관되게 사용하며, 새 섹션을 만들 때도 반드시 한 글자(최대 두 글자)의 한자를 부여합니다.</p>
+    <div class="glyphs" style="margin-top:28px;">
+      <div class="gl"><div class="g">無用</div><div class="e">Home</div><div class="n">01</div></div>
+      <div class="gl"><div class="g">號</div><div class="e">Issues</div><div class="n">02</div></div>
+      <div class="gl"><div class="g">論</div><div class="e">Essays</div><div class="n">03</div></div>
+      <div class="gl"><div class="g">思</div><div class="e">Theory</div><div class="n">04</div></div>
+      <div class="gl"><div class="g">行</div><div class="e">Praxis</div><div class="n">05</div></div>
+      <div class="gl"><div class="g">書庫</div><div class="e">Archive</div><div class="n">06</div></div>
+      <div class="gl"><div class="g">信</div><div class="e">Contact</div><div class="n">07</div></div>
+    </div>
+    <div class="cap" style="border:0;padding:10px 2px;"><span>보조 축: 對象 Subject (작품 도시에) · 思 Concept (개념 색인) · 序 Editorial · 對話 Conversation · 映 Film</span><span>Noto Serif HK 700</span></div>
+  </section>
+
+  <!-- ───────── 05 Grid & Space ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">05</span><span>Grid · 格子</span></div>
+    <h2>모눈 격자와 공간 <span class="han">格子</span></h2>
+    <p class="note">배경의 24px 모눈(graph paper)이 시스템의 기준 단위입니다. 화면을 가로지르는 모든 수평 룰은 격자 피치에 스냅되고, 행 높이는 격자의 배수(48 · 72 · 96px)로만 잡습니다.</p>
+
+    <div class="grid2" style="margin-top:28px; align-items:stretch;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px;">Space scale — 8px base</div>
+        <div class="space-bar">
+          <div style="height:5%;"><span>8</span></div>
+          <div style="height:9%;"><span>16</span></div>
+          <div style="height:14%;"><span>24</span></div>
+          <div style="height:19%;"><span>32</span></div>
+          <div style="height:28%;"><span>48</span></div>
+          <div style="height:38%;"><span>64</span></div>
+          <div style="height:57%;"><span>96</span></div>
+          <div style="height:76%;"><span>128</span></div>
+          <div style="height:95%;"><span>160</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px;">Layout constants</div>
+        <ul class="rules-list">
+          <li><b>--grid-cell 24px</b>모눈 한 칸 = 거터 = 3 × 8px 베이스라인</li>
+          <li><b>--max-width 1440px</b>12칼럼 · 거터 24px</li>
+          <li><b>--reading-width 720px</b>본문 측정폭 · 인용 560px</li>
+          <li><b>--page-margin</b>clamp(24px, 5vw, 96px)</li>
+          <li><b>--section-gap</b>clamp(64px, 9vw, 128px)</li>
+          <li><b>radius 0 · shadow 없음</b>모든 모서리는 직각, 깊이는 룰과 면으로만</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── 06 Motion & Imagery ───────── -->
+  <section class="sec">
+    <div class="eyebrow"><span class="no">06</span><span>Motion &amp; Image · 動 · 寫</span></div>
+    <h2>모션과 이미지 <span class="han">動</span></h2>
+    <div class="mo" style="margin-top:28px;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Motion</div>
+        <ul class="rules-list">
+          <li><b>base 250ms</b>표준 전환</li>
+          <li><b>fast 150ms</b>호버 컬러</li>
+          <li><b>cinema 300ms</b>이미지 리빌 · −2px lift</li>
+          <li><b>ease</b>cubic-bezier(0.2, 0, 0, 1)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Imagery</div>
+        <ul class="rules-list">
+          <li><b>filter</b>saturate(0.9) contrast(0.95)</li>
+          <li><b>placeholder</b>격자 텍스처 + 大형 한자 사인</li>
+          <li><b>hover-reveal</b>페이드만 — 移動·스왑 금지</li>
+          <li><b>크레딧</b>mono caps, 이미지 좌하단</li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Bilingual</div>
+        <ul class="rules-list">
+          <li><b>KR 기본</b>EN 토글 — 모든 콘텐츠 쌍으로</li>
+          <li><b>EN 제목</b>tr −0.018em · balance</li>
+          <li><b>독음 병기</b>EN 모드에서 한국어는 정체 600</li>
+          <li><b>라벨</b>「English · 漢字」 형식 고정</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>無用 In Utile — Brand &amp; Design Reference</span>
+    <span>Crimson #8A2D2B · Paper #FAF8F2 · 24px Grid</span>
+  </footer>
+
+</div>
+</body>
+</html>
