@@ -1,0 +1,299 @@
+/* ============================================================
+   In·Utile — Architecture Portfolio
+   Real print dimensions (mm / pt). A4 page → A3 spread.
+   Tokens & components transcribed from the Print Portfolio System v1.0
+   ============================================================ */
+
+:root{
+  /* ---- ink ---- */
+  --paper:        #FAF8F2;  /* canvas               C1 M2 Y6 K0  */
+  --charcoal:     #3D3936;  /* text primary         0 6 12 85    */
+  --charcoal-soft:#5E574F;  /* text secondary       0 8 16 66    */
+  --ghost:        #6E665B;  /* meta / labels        0 7 18 57    */
+  --crimson:      #8A2D2B;  /* PRIME accent         25 90 82 22  */
+  --crimson-bright:#E84A3D; /* accent on dark       0 75 78 0    */
+  --gold:         #A98742;  /* large numerals only  20 30 70 15  */
+  --ink:          #1E1B19;  /* warm rich black div  50 45 45 100 */
+  --ivory:        #F6F3EC;  /* text on ink          2 3 8 0      */
+  --rule:         rgba(61,57,54,.20);   /* hairline 18–20% */
+  --rule-soft:    rgba(61,57,54,.12);
+  --rule-ivory:   rgba(246,243,236,.22);
+  --grid-line:    #ECE6DA;  /* 24px graph-paper line (brand signature) */
+  --grid-cell:    5mm;      /* print-true graph pitch = 1 column gutter */
+
+  /* ---- faces ---- */
+  --f-num:  "Bodoni Moda", "Spectral", serif;          /* numerals / display mark */
+  --f-disp: "Spectral", Georgia, serif;                /* display & headings (EN)  */
+  --f-body: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --f-crit: "Cormorant Garamond", Georgia, serif;      /* critique / quote (ital)  */
+  --f-meta: "IBM Plex Mono", ui-monospace, monospace;  /* meta / folio             */
+  /* hanja marks — HK carries the ideographs (無·行·論·思), KR fills hangul readings per-glyph */
+  --f-han:  "Noto Serif HK", "Noto Serif KR", "Spectral", serif;
+}
+
+/* ============================================================
+   PRINT PAGE MODEL — designed at real mm; type in real pt
+   ============================================================ */
+
+.spread{
+  width: 420mm; height: 297mm;
+  display: flex;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  color: var(--charcoal);
+  font-family: var(--f-body);
+  box-shadow: 0 2mm 9mm rgba(0,0,0,.45), 0 0 0 0.2pt rgba(0,0,0,.25);
+}
+/* single right-hand page (cover, CV) shown alone, centred on its A4 */
+.spread.single{ width: 420mm; justify-content: center; background: transparent; box-shadow:none; }
+.spread.single .page{ box-shadow: 0 2mm 9mm rgba(0,0,0,.45); }
+.spread.single .page.blank{ background: transparent; box-shadow:none; }
+
+.page{
+  width: 210mm; height: 297mm;
+  position: relative;
+  background-color: var(--paper);
+  flex: 0 0 210mm;
+  /* 24px graph-paper signature, scaled to a print-true 5mm pitch, very faint.
+     Kept on for print on purpose. --gl is the line tint per surface. */
+  --gl: rgba(61,57,54,.055);
+  background-image:
+    linear-gradient(var(--gl) .35pt, transparent .35pt),
+    linear-gradient(90deg, var(--gl) .35pt, transparent .35pt);
+  background-size: var(--grid-cell) var(--grid-cell);
+  background-position: 0 0;
+}
+.page.dark{ background-color: var(--ink); color: var(--ivory); --gl: rgba(246,243,236,.05); }
+.page.crimson{ background-color: var(--crimson); color: var(--ivory); --gl: rgba(246,243,236,.08); }
+.page.crimson .folio,
+.page.crimson .meta,
+.page.crimson .eyebrow{ color: rgba(246,243,236,.62); }
+.page.crimson .hr{ border-top-color: var(--rule-ivory); }
+
+/* live / type area via margins. verso = inside margin on right; recto = inside on left */
+.live{
+  position: absolute; top: 18mm; bottom: 20mm;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 5mm;
+  align-content: start;
+}
+.verso .live{ left: 15mm; right: 20mm; }  /* outside 15 | inside 20 */
+.recto .live{ left: 20mm; right: 15mm; }  /* inside 20 | outside 15 */
+
+/* spine fold cue (screen only) */
+.spread::after{
+  content:""; position:absolute; top:0; bottom:0; left:50%; width:24mm;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.06) 42%, rgba(0,0,0,.10) 50%, rgba(0,0,0,.06) 58%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+}
+.spread.no-spine::after{ display:none; }
+
+/* full-bleed layer (ignores margins, crosses spine) */
+.bleed{ position:absolute; inset:0; }
+
+/* folio */
+.folio{
+  position:absolute; bottom: 12mm;
+  font-family: var(--f-meta); font-size: 8pt; letter-spacing: .06em;
+  color: var(--ghost);
+}
+.verso .folio{ left: 15mm; }
+.recto .folio{ right: 15mm; }
+.page.dark .folio{ color: rgba(246,243,236,.5); }
+
+/* ============================================================
+   TYPE PRIMITIVES (real pt)
+   ============================================================ */
+
+.mark-num{ font-family: var(--f-num); font-weight: 600; line-height: .9;
+  letter-spacing: -.02em; font-size: 84pt; color: var(--charcoal); }
+.mark-num.gold{ color: var(--gold); }
+
+.eyebrow{ font-family: var(--f-meta); font-size: 7pt; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ghost); }
+
+.title-disp{ font-family: var(--f-disp); font-weight: 500; font-size: 32pt;
+  line-height: 42pt; letter-spacing: -.01em; color: var(--charcoal); }
+.heading{ font-family: var(--f-disp); font-weight: 500; font-size: 22pt;
+  line-height: 28pt; color: var(--charcoal); }
+
+.lead{ font-family: var(--f-crit); font-weight: 500; font-style: italic;
+  font-size: 14pt; line-height: 21pt; color: var(--charcoal-soft); }
+
+.body{ font-family: var(--f-body); font-weight: 360; font-size: 9.5pt;
+  line-height: 14pt; text-align: justify; text-justify: inter-word;
+  hyphens: auto; color: var(--charcoal); }
+.body p{ margin: 0 0 14pt; }
+.body p:last-child{ margin-bottom:0; }
+
+.caption{ font-family: var(--f-body); font-weight: 400; font-size: 8pt;
+  line-height: 12pt; color: var(--ghost); }
+.caption b{ color: var(--charcoal-soft); font-weight:600; }
+
+.meta{ font-family: var(--f-meta); font-size: 7pt; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ghost); line-height: 14pt; }
+
+/* hairline rules */
+.hr{ border:0; height:0; border-top:.6pt solid var(--rule); margin:0; }
+.rule-crim{ width: 46mm; height: 0; border-top: 1.4pt solid var(--crimson); }
+
+/* hanja watermark */
+.han-wm{ font-family: var(--f-han); font-weight: 700; line-height:1;
+  color: rgba(138,45,43,.5); }
+
+/* ============================================================
+   COVER
+   ============================================================ */
+.cover .brand-cjk{ position:absolute; top: 18mm; right: 15mm;
+  font-family: var(--f-han); font-weight: 700; font-size: 30pt;
+  color: rgba(138,45,43,.55); letter-spacing:.04em; }
+.cover .name{ font-family: var(--f-disp); font-weight:500; font-size: 13pt;
+  letter-spacing:.02em; color: var(--charcoal-soft); }
+.cover .ptitle{ font-family: var(--f-disp); font-weight:500; font-size: 40pt;
+  line-height: 46pt; letter-spacing:-.01em; margin-top: 6pt; }
+.cover .ptitle em{ font-family: var(--f-crit); font-style:italic; font-weight:600;
+  color: var(--crimson); }
+.cover .standfirst{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.12em;
+  text-transform:uppercase; color: var(--ghost); line-height: 13pt; }
+.cover .year{ font-family: var(--f-num); font-weight:600; font-size: 64pt;
+  color: var(--gold); line-height:.9; letter-spacing:-.02em; }
+
+/* ---- formal wordmark lockup: 無用 / in utile ---- */
+.lockup{ display:flex; flex-direction:column; align-items:flex-start; gap:3pt; }
+.lockup.center{ align-items:center; text-align:center; }
+.lockup .cjk{ font-family: var(--f-han); font-weight:700; line-height:1;
+  letter-spacing:.04em; font-size:72pt; color: var(--charcoal); white-space:nowrap; }
+.lockup .latin{ font-family: var(--f-num); font-weight:600; line-height:1;
+  letter-spacing:.03em; font-size:22pt; color: var(--charcoal); text-transform:none; white-space:nowrap; }
+.lockup.sm .cjk{ font-size:24pt; } .lockup.sm .latin{ font-size:10pt; }
+
+/* ---- dark cover spread ---- */
+.cover.dark{ background-color: var(--ink); color: var(--ivory); }
+.cover.dark .name{ color: rgba(246,243,236,.72); }
+.cover.dark .ptitle{ color: var(--ivory); }
+.cover.dark .ptitle em{ color: var(--crimson-bright); }
+.cover.dark .standfirst{ color: rgba(246,243,236,.5); }
+.cover.dark .lockup .cjk{ color: var(--ivory); }
+.cover.dark .lockup .latin{ color: rgba(246,243,236,.82); }
+.cover.dark .rule-crim{ border-top-color: var(--crimson-bright); }
+.cover.dark .brand-cjk{ color: rgba(246,243,236,.10); }
+.cover.dark .folio{ color: rgba(246,243,236,.5); }
+.epigraph.on-dark{ color: rgba(246,243,236,.74); }
+.epigraph.on-dark .src{ color: rgba(246,243,236,.45); }
+
+/* epigraph (verso behind cover) */
+.epigraph{ font-family: var(--f-crit); font-style:italic; font-weight:500;
+  font-size: 15pt; line-height: 23pt; color: var(--charcoal-soft); max-width: 120mm; }
+.epigraph .src{ font-family: var(--f-meta); font-style:normal; font-size:7pt;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ghost); display:block; margin-top:14pt; }
+
+/* ============================================================
+   TABLE OF CONTENTS — the 號 register
+   ============================================================ */
+.toc-head{ font-family: var(--f-disp); font-weight:500; font-size: 22pt; }
+.toc-cjk{ font-family: var(--f-han); font-weight:700; font-size: 30pt; color: var(--charcoal); }
+.toc-row{ display:grid; grid-template-columns: 18mm 1fr auto; align-items:baseline;
+  column-gap: 6mm; padding: 7pt 0; border-top:.6pt solid var(--rule); }
+.toc-row:last-child{ border-bottom:.6pt solid var(--rule); }
+.toc-row .tnum{ font-family: var(--f-num); font-weight:600; font-size: 22pt;
+  color: var(--gold); line-height:1; }
+.toc-row .ttitle{ font-family: var(--f-disp); font-weight:500; font-size: 13pt; color:var(--charcoal); }
+.toc-row .tstand{ font-family: var(--f-body); font-weight:360; font-size: 8.5pt;
+  color: var(--charcoal-soft); margin-top: 2pt; }
+.toc-row .tmeta{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ghost); text-align:right; line-height:12pt; }
+
+/* ============================================================
+   SECTION DIVIDER — dark, hanja watermark
+   ============================================================ */
+.divider .wm{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font-family: var(--f-han); font-weight:700; font-size: 150mm; line-height:1;
+  color: rgba(246,243,236,.09); }
+.divider .dmark{ width: 50mm; height:0; border-top: 2pt solid var(--crimson-bright); }
+.divider .dnum{ font-family: var(--f-num); font-weight:600; font-size: 30pt; color: var(--crimson-bright); }
+.divider .dtitle{ font-family: var(--f-disp); font-weight:500; font-size: 30pt;
+  color: var(--ivory); line-height: 36pt; }
+.divider .dindex{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.12em;
+  text-transform:uppercase; color: rgba(246,243,236,.55); line-height: 14pt; }
+
+/* ============================================================
+   PROJECT INTRO
+   ============================================================ */
+.metablock{ display:grid; grid-template-columns: 22mm 1fr; row-gap: 5pt; column-gap: 4mm; }
+.metablock .k{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.1em;
+  text-transform:uppercase; color: var(--ghost); }
+.metablock .v{ font-family: var(--f-body); font-weight:400; font-size: 8.5pt; color: var(--charcoal); }
+
+/* ============================================================
+   IMAGE FRAMES
+   ============================================================ */
+/* The filled image carries the brand imagery treatment. */
+image-slot::part(image){ filter: saturate(.9) contrast(.95); }
+/* Empty state = brand placeholder: graph texture + 大形 hanja sign + mono caption */
+image-slot{ display:block; width:100%; height:100%;
+  background-color: var(--ivory);
+  --gl: rgba(61,57,54,.07);
+  background-image:
+    linear-gradient(var(--gl) .35pt, transparent .35pt),
+    linear-gradient(90deg, var(--gl) .35pt, transparent .35pt);
+  background-size: var(--grid-cell) var(--grid-cell);
+}
+image-slot::part(frame){ background: transparent; }
+image-slot::part(ring){ border-color: var(--rule); border-width: .6pt; }
+image-slot::part(icon){ display: none; }
+image-slot::part(sign){ font-family: var(--f-han); font-weight: 700;
+  font-size: 60pt; line-height: 1; color: rgba(138,45,43,.16);
+  margin-bottom: 4pt; }
+image-slot::part(cap){ font-family: var(--f-meta); font-size: 7.5pt;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ghost);
+  font-weight: 500; max-width: 80%; }
+image-slot::part(sub){ font-family: var(--f-meta); font-size: 6.5pt;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ghost); }
+.frame{ position:relative; overflow:hidden; }
+.live.fill{ align-content:stretch; }   /* single full-height column: lets mt-a pin to bottom */
+.frame .cap{ margin-top: 4pt; }
+.imgnote{ font-family: var(--f-meta); font-size:6.5pt; letter-spacing:.06em;
+  color: var(--ghost); text-transform:uppercase; }
+
+/* ============================================================
+   TWO-VOICE — Description + Critique 批
+   ============================================================ */
+.crit{ position:relative; padding-left: 5mm; }
+.crit::before{ content:""; position:absolute; left:0; top:2pt; bottom:2pt;
+  width: 1.4pt; background: var(--crimson); }
+.crit .lbl{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.12em;
+  text-transform:uppercase; color: var(--crimson); display:flex; gap:5pt; align-items:center; margin-bottom: 6pt; }
+.crit .lbl .pi{ font-family: var(--f-han); font-weight:700; font-size: 12pt; line-height:1; }
+.crit p{ font-family: var(--f-crit); font-style:italic; font-weight:500;
+  font-size: 10.5pt; line-height: 15pt; color: var(--charcoal); margin: 0 0 9pt; }
+.crit p:last-child{ margin-bottom:0; }
+
+/* pull-quote (essay) */
+.pull{ font-family: var(--f-crit); font-style:italic; font-weight:600;
+  font-size: 19pt; line-height: 25pt; color: var(--crimson); }
+.pull .pi{ font-family: var(--f-han); font-weight:700; color: var(--crimson); font-style:normal; }
+
+/* drop cap */
+.dropcap::first-letter{ font-family: var(--f-disp); font-weight:500; float:left;
+  font-size: 46pt; line-height: 38pt; padding-right: 3mm; color: var(--crimson); }
+
+/* CV register */
+.cv-row{ display:grid; grid-template-columns: 26mm 1fr; column-gap: 5mm;
+  padding: 6pt 0; border-top:.6pt solid var(--rule); align-items:baseline; }
+.cv-row .yr{ font-family: var(--f-meta); font-size: 7.5pt; letter-spacing:.06em; color: var(--ghost); }
+.cv-row .ent b{ font-family: var(--f-body); font-weight:600; font-size: 9.5pt; color: var(--charcoal); }
+.cv-row .ent span{ font-family: var(--f-body); font-weight:360; font-size: 8.5pt; color: var(--charcoal-soft); }
+.colophon{ font-family: var(--f-meta); font-size: 7pt; letter-spacing:.04em;
+  line-height: 12pt; color: var(--ghost); }
+
+/* ============================================================
+   helpers
+   ============================================================ */
+.stack{ display:flex; flex-direction:column; }
+.col-1{ grid-column: 1; } .col-1-3{ grid-column: 1 / 4; } .col-1-4{ grid-column: 1 / 5; }
+.col-1-6{ grid-column: 1 / 7; } .col-5-6{ grid-column: 5 / 7; } .col-4-6{ grid-column: 4 / 7; }
+.col-2-6{ grid-column: 2 / 7; }
+.mt-a{ margin-top:auto; }

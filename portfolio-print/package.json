@@ -1,0 +1,13 @@
+{
+  "name": "in-utile-portfolio-print",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Press PDF + IDML exporter for the 無用 In·Utile / Taeyoung Ro architecture portfolio.",
+  "scripts": {
+    "pdf": "node make-pdf.js",
+    "idml": "python3 build-idml.py"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

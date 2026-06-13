@@ -1,0 +1,5 @@
+# Reproducible, large, or machine-specific — regenerate with the scripts.
+node_modules/
+fonts/*.ttf
+fonts/*.otf
+package-lock.json
